@@ -1,0 +1,12 @@
+﻿@model go2sweden.Models.IndexViewModel;
+
+@{
+    ViewData["Title"] = @Model.Title;
+}
+
+@section header {
+    <script src="~/js/index.js"></script>
+    <link rel="stylesheet" href="~/css/index.css"></link>
+}
+
+<div id="mydiv">@Model.Message</div>
