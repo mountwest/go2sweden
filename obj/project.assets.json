@@ -12537,23 +12537,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mt. West\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/macbookair/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mt. West\\Documents\\Visual Studio Code\\Ämnesövergripande\\go2sweden\\go2sweden.csproj",
+      "projectUniqueName": "/Users/macbookair/go2sweden/go2sweden.csproj",
       "projectName": "go2sweden",
-      "projectPath": "C:\\Users\\Mt. West\\Documents\\Visual Studio Code\\Ämnesövergripande\\go2sweden\\go2sweden.csproj",
-      "packagesPath": "C:\\Users\\Mt. West\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mt. West\\Documents\\Visual Studio Code\\Ämnesövergripande\\go2sweden\\obj\\",
+      "projectPath": "/Users/macbookair/go2sweden/go2sweden.csproj",
+      "packagesPath": "/Users/macbookair/.nuget/packages/",
+      "outputPath": "/Users/macbookair/go2sweden/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Mt. West\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/macbookair/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
