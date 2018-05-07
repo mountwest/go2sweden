@@ -8,7 +8,7 @@ namespace go2sweden.Models
         public IndexViewModel Load(){
             IndexViewModel model = new IndexViewModel();
             model.Title = "My second webpage!";
-            model.Message = "Hej Världen!!!";
+            model.Message = "Hej!";
             return model;
         }
     }
