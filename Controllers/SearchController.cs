@@ -13,7 +13,7 @@ namespace go2sweden.Controllers
         public IActionResult Index()
         {
             SearchViewModel result = new SearchViewModel().Load();
-            return View();
+            return View(result);
         }
         public IActionResult Sweden()
         {
