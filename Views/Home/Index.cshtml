@@ -5,13 +5,50 @@
 }
 
 @section header {
-    <script src="~/js/index.js"></script>
+	<script src="js/SmoothScroll.min.js"></script>
+	<script src="js/move-top.js"></script>
+	<script src="js/easing.js"></script>
+    <script src="~/js/Home/index.js"></script>
     <link rel="stylesheet" href="~/css/index.css"></link>
 }
 
 <body>
 	<!-- header -->
+		<!-- carousel slider -->
 	
+				<div class="item1 active">
+					<div class="w3l-overlay">
+						<div class="container">
+							<div class="slider-text text-white p-lg-5 p-4">
+								<h6>Sök din resa genom OS 2024</h6>
+								<h3 class="mt-lg-3 mt-2 mb-lg-4 mb-3">Från hela världen till OS byn</h3>
+							<form action="#" method="post">
+
+							<div class="form-group">
+								<label class="col-form-label">From</label>
+								<input type="text" class="form-control" placeholder="Where do you want to travel from?" name="to" id="fromDestination" required="">
+							</div>
+							<div class="form-group">
+								<label class="col-form-label">To</label>
+								<select class="category form-control" id="toDestination" required="">
+									<option value="Stockholm">Stockholm</option>
+									<option value="Åre">Åre</option>
+									<option value="Falun">Falun</option>
+								</select>
+							</div>
+							<button id="apisearch">SEARCH</button>
+						</form>
+							</div>
+						</div>
+					</div>
+					<div>
+						<ul>
+							
+						</ul>
+					</div>
+				</div>
+		<!-- //carousel slider -->
+
 	<!-- //header -->
 
 	<!-- welcome -->
@@ -144,84 +181,7 @@
 	
 	<!-- //footer -->
 
-	<!-- Js files -->
-	<!-- JavaScript -->
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<!-- Default-JavaScript-File -->
 
-	<script src="js/bootstrap.js"></script>
-	<!-- Necessary-JavaScript-File-For-Bootstrap -->
-
-	<!-- search -->
-	<script src="js/search.js"></script>
-
-	<!-- Owl-Carousel-JavaScript -->
-	<script src="js/owl.carousel.js"></script>
-	<script>
-		var owl = $('.owl-carousel');
-		owl.owlCarousel({
-			items: 3,
-			loop: true,
-			margin: 10,
-			autoplay: true,
-			autoplayTimeout: 1000,
-			autoplayHoverPause: true,
-			responsive: {
-				0: {
-					items: 1
-				},
-				600: {
-					items: 2
-				},
-				1000: {
-					items: 3
-				}
-			}
-		});
-		$('.play').on('click', function () {
-			owl.trigger('play.owl.autoplay', [1000])
-		})
-		$('.stop').on('click', function () {
-			owl.trigger('stop.owl.autoplay')
-		})
-	</script>
-	<!-- //Owl-Carousel-JavaScript -->
-
-	<!-- smooth scrolling -->
-	<script src="js/SmoothScroll.min.js"></script>
-	<!-- //smooth scrolling -->
-
-	<!-- start-smoth-scrolling -->
-	<script src="js/move-top.js"></script>
-	<script src="js/easing.js"></script>
-	<script>
-		jQuery(document).ready(function ($) {
-			$(".scroll").click(function (event) {
-				event.preventDefault();
-				$('html,body').animate({
-					scrollTop: $(this.hash).offset().top
-				}, 1000);
-			});
-		});
-	</script>
-	<!-- start-smoth-scrolling -->
-
-	<!-- smooth scrolling-bottom-to-top -->
-	<script>
-		$(document).ready(function () {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-			$().UItoTop({
-				easingType: 'easeOutQuart'
-			});
-		});
-	</script>
 	<a href="#" id="toTop" style="display: block;">
 		<span id="toTopHover" style="opacity: 1;"> </span>
 	</a>
