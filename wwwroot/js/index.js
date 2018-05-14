@@ -1,20 +1,8 @@
 $(document).ready(function () {
 
-    function createNode(element) {
-        return document.createElement(element);
-    }
-
-    function append(parent, el) {
-        return parent.appendChild(el);
-    }
-
     const ul = document.getElementById('names');
 
     $('#apisearch').on('click', function () {
-
-        function append(parent, el) {
-            return parent.appendChild(el);
-        }
 
         var data =
             {
@@ -34,12 +22,9 @@ $(document).ready(function () {
                     alert("Something went wrong (" + textStatus + ")");
                 }).done(function (result, textStatus, jqXHR) {
                     let names = result.routes;
+                    $("#names").empty();
                     return names.map(function (city) {
-                        let li = createNode('li'),
-                            span = createNode('span');
-                        span.innerHTML = `${city.name} ${city.totalDuration}`;
-                        append(li, span);
-                        append(ul, li);
+                        $('#names').append('<li><span>' + `${city.name} ${city.totalDuration}` + '</span></li>' );
                     })
                 });
         }
