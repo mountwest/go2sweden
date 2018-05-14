@@ -1,8 +1,17 @@
 $(document).ready(function () {
 
+    function createNode(element) {
+        return document.createElement(element);
+    }
+
+    function append(parent, el) {
+        return parent.appendChild(el);
+    }
+
+    const ul = document.getElementById('names');
+
     $('#apisearch').on('click', function () {
-        alert('click');
-                
+
         function append(parent, el) {
             return parent.appendChild(el);
         }
@@ -10,30 +19,21 @@ $(document).ready(function () {
         var data =
             {
                 fromDestination: $('#fromDestination').val().trim(),
-                toDestination: $('#toDestination').val().trim()
+                toDestination: $('#toDestination').val().trim(),
             };
 
         if (data.fromDestination !== '' && data.toDestination !== '') {
             $.ajax(
                 {
                     url: 'http://free.rome2rio.com/api/1.4/json/Search?key=S2Q8spaR&oName=' + data.fromDestination + '&dName=' + data.toDestination + '&noRideshare',
-                    data: JSON.stringify(data),
-                    type: 'POST',
-                    contentType: "application/json; charset=utf-8",
+                    type: 'GET',
+                    dataType: "json",
                     processData: false,
                     cache: false
                 }).fail(function (jqXHR, textStatus, errorThrown) {
-                    helper.ajaxError(jqXHR, textStatus, errorThrown, this.url, this.data);
+                    alert("Something went wrong (" + textStatus + ")");
                 }).done(function (result, textStatus, jqXHR) {
-                    'localhost:5000/search'.format(jsContext.rootURL);
-                });
-
-            const ul = document.getElementById('names');
-
-            fetch(url)
-                .then((resp) => resp.json())
-                .then(function (data) {
-                    let names = data.routes;
+                    let names = result.routes;
                     return names.map(function (city) {
                         let li = createNode('li'),
                             span = createNode('span');
@@ -41,9 +41,6 @@ $(document).ready(function () {
                         append(li, span);
                         append(ul, li);
                     })
-                })
-                .catch(function (error) {
-                    console.log(JSON.stringify(error));
                 });
         }
     });
