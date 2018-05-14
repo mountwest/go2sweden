@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-    const ul = document.getElementById('names');
-
     $('#apisearch').on('click', function () {
 
         var data =
@@ -24,7 +22,7 @@ $(document).ready(function () {
                     let names = result.routes;
                     $("#names").empty();
                     return names.map(function (city) {
-                        $('#names').append('<li><span>' + `${city.name} ${city.totalDuration}` + '</span></li>' );
+                        $('#names').append('<li><span>' + city.name + " " + city.totalDuration + '</span></li>' );
                     })
                 });
         }
