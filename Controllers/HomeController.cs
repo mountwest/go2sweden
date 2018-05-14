@@ -15,6 +15,14 @@ namespace go2sweden.Controllers
             IndexViewModel model = new IndexViewModel().Load();
             return View(model);
         }
+        public IActionResult Kontakt()
+        {
+            return View();
+        }
+        public IActionResult Evenemang()
+        {
+            return View();
+        }
 
         public IActionResult Error()
         {
