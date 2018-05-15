@@ -22,7 +22,7 @@ $(document).ready(function () {
                     let names = result.routes;
                     $("#names").empty();
                     return names.map(function (city) {
-                        $('#names > tbody:last-child').append('<tr><td>' + city.name + "</td><td>" + city.totalDuration + "</td><td>" + city.indicativePrices[0].price + " " + city.indicativePrices[0].currency + '</td></tr>' );
+                        $('#names > tbody:last-child').append('<tr><td>' + city.name + "</td><td>" + parseInt(city.totalDuration/60) + "h " + (city.totalDuration%60) + "min" + "</td><td>" + city.indicativePrices[0].price + " " + city.indicativePrices[0].currency + '</td></tr>' );
                     })
                 });
         }
