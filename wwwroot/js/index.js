@@ -22,7 +22,7 @@ $(document).ready(function () {
                     let names = result.routes;
                     $("#names").empty();
                     return names.map(function (city) {
-                        $('#names').append('<li><span>' + city.name + " " + city.totalDuration + '</span></li>' );
+                        $('#names > tbody:last-child').append('<tr><td>' + city.name + "</td><td>" + city.totalDuration + "</td><td>" + city.indicativePrices[0].price + " " + city.indicativePrices[0].currency + '</td></tr>' );
                     })
                 });
         }
@@ -67,6 +67,23 @@ $(document).ready(function () {
     $('.stop').on('click', function () {
         owl.trigger('stop.owl.autoplay')
     });
+
+    
 });
 
-
+angular.module("myApp" , []).controller("myCtrl", function($scope){
+    $scope.produkter = [
+        {id:'', namn:'', pris:8000},
+        {id:'', namn:'', pris:9000},
+        {id:'', namn:'', pris:5000},
+        {id:'', namn:'', pris:12000},
+        {id:'', namn:'', pris:15000},
+    ] ;
+    $scope.orderByMe = function(x , desc=false){
+        $scope.myOrderBy = x;
+        // Lägg till "-" för att sortera stigande (högsta pris högst upp)
+        if(desc){
+            $scope.myOrderBy = "-" + x;
+        }
+    }
+})
