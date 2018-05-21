@@ -49,30 +49,25 @@
 	<div class="about py-sm-5 py-4">
 		<div class="container">
 
-			<ul id="names">
-			</ul>
-			<div ng-app="myApp" ng-controller="myCtrl" class="container">
-				<h2>Visa alla färdmedel</h2>
-				<h4>Klicka på kolumnrubrikerna för att sortera listan</h4>
-				<table class="table table-hover table-sm" id="names">
-					<tbody>
-					<tr>
-						<th ng-click="orderByMe('id')">Färdmedel</th>
-						<th ng-click="orderByMe('namn')">Tid</th>
-						<th>
-							<span class="pil" ng-click="orderByMe('pris', true)">&uarr;</span>
-							Pris 
-							<span class="pil" ng-click="orderByMe('pris')">&darr;</span>
-						</th>
-					</tr>
-					<!-- <tr ng-repeat="p in produkter | orderBy:myOrderBy">
-						<td>{{p.id}}</td>
-						<td>{{p.namn}}</td>
-						<td>{{p.pris}}</td>
-					</tr> -->
-					</tbody>
-				</table>
-			</div>
+				<div id="googleMap" style="height:600px;"></div>
+				
+				<div ng-app="myApp" ng-controller="myCtrl" class="container">
+					<h2>Visa alla färdmedel</h2>
+					<h4>Klicka på kolumnrubrikerna för att sortera listan</h4>
+					<table class="table table-hover table-sm" id="names">
+						<tbody>
+							<tr>
+								<th ng-click="orderByMe('id')">Färdmedel</th>
+								<th ng-click="orderByMe('namn')">Tid</th>
+								<th>
+									<span class="pil" ng-click="orderByMe('pris', true)">&uarr;</span>
+									Pris 
+									<span class="pil" ng-click="orderByMe('pris')">&darr;</span>
+								</th>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 		</div>
 	</div>
 	<!-- //welcome -->

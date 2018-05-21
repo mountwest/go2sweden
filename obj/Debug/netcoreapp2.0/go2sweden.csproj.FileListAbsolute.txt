@@ -29,3 +29,4 @@ C:\Users\Mt. West\Documents\Visual Studio Code\Ämnesövergripande\go2sweden\obj
 C:\Users\Mt. West\Documents\Visual Studio Code\Ämnesövergripande\go2sweden\obj\Debug\netcoreapp2.0\go2sweden.AssemblyInfo.cs
 C:\Users\Mt. West\Documents\Visual Studio Code\Ämnesövergripande\go2sweden\obj\Debug\netcoreapp2.0\go2sweden.dll
 C:\Users\Mt. West\Documents\Visual Studio Code\Ämnesövergripande\go2sweden\obj\Debug\netcoreapp2.0\go2sweden.pdb
+C:\Users\Mt. West\Documents\Visual Studio Code\Ämnesövergripande\go2sweden\obj\Debug\netcoreapp2.0\go2sweden.csprojResolveAssemblyReference.cache
