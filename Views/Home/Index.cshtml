@@ -10,6 +10,7 @@
 	<script src="js/easing.js"></script>
     <script src="~/js/index.js"></script>
     <link rel="stylesheet" href="~/css/index.css"></link>
+<link rel="stylesheet" href="~/css/site.css"></link>
 }
 
 <body>
@@ -151,6 +152,28 @@
 	<!-- footer -->
 	
 	<!-- //footer -->
+
+<div class="about py-sm-5 py-4">
+		
+		<div class="container">
+
+				
+			<ul id="transportmode"></ul>
+				<div class="popup"  ng-app="myApp" ng-controller="myCtrl" class="container">
+					<h2>Visa alla färdmedel</h2>
+					<h4>Klicka på kolumnrubrikerna för att sortera listan</h4>
+					<table class="table popup table-onClick='myFunction()' table-sm" id="transportmode">
+						<tbody>
+							<tr>
+								<th ng-click="orderByMe('id')">Färdmedel</th>
+							<span class="popuptext" id="myPopup">A Simple Popup!</span>
+							</tr>
+						</tbody>
+					
+					</table>
+				</div>
+		</div>
+	</div>
 
 
 	<a href="#" id="toTop" style="display: block;">

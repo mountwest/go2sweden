@@ -8,16 +8,6 @@
 /Users/macbookair/go2sweden/obj/Debug/netcoreapp2.0/go2sweden.AssemblyInfo.cs
 /Users/macbookair/go2sweden/obj/Debug/netcoreapp2.0/go2sweden.dll
 /Users/macbookair/go2sweden/obj/Debug/netcoreapp2.0/go2sweden.pdb
-C:/Users/Per/Documents/GitHub/go2sweden/bin/Debug/netcoreapp2.0/go2sweden.deps.json
-C:/Users/Per/Documents/GitHub/go2sweden/bin/Debug/netcoreapp2.0/go2sweden.runtimeconfig.json
-C:/Users/Per/Documents/GitHub/go2sweden/bin/Debug/netcoreapp2.0/go2sweden.runtimeconfig.dev.json
-C:/Users/Per/Documents/GitHub/go2sweden/bin/Debug/netcoreapp2.0/go2sweden.dll
-C:/Users/Per/Documents/GitHub/go2sweden/bin/Debug/netcoreapp2.0/go2sweden.pdb
-C:/Users/Per/Documents/GitHub/go2sweden/obj/Debug/netcoreapp2.0/go2sweden.csproj.CoreCompileInputs.cache
-C:/Users/Per/Documents/GitHub/go2sweden/obj/Debug/netcoreapp2.0/go2sweden.AssemblyInfoInputs.cache
-C:/Users/Per/Documents/GitHub/go2sweden/obj/Debug/netcoreapp2.0/go2sweden.AssemblyInfo.cs
-C:/Users/Per/Documents/GitHub/go2sweden/obj/Debug/netcoreapp2.0/go2sweden.dll
-C:/Users/Per/Documents/GitHub/go2sweden/obj/Debug/netcoreapp2.0/go2sweden.pdb
 /Users/macbookair/go2sweden/obj/Debug/netcoreapp2.0/go2sweden.csprojResolveAssemblyReference.cache
 C:\Users\Mt. West\Documents\Visual Studio Code\Ämnesövergripande\go2sweden\bin\Debug\netcoreapp2.0\go2sweden.deps.json
 C:\Users\Mt. West\Documents\Visual Studio Code\Ämnesövergripande\go2sweden\bin\Debug\netcoreapp2.0\go2sweden.runtimeconfig.json
@@ -30,3 +20,13 @@ C:\Users\Mt. West\Documents\Visual Studio Code\Ämnesövergripande\go2sweden\obj
 C:\Users\Mt. West\Documents\Visual Studio Code\Ämnesövergripande\go2sweden\obj\Debug\netcoreapp2.0\go2sweden.dll
 C:\Users\Mt. West\Documents\Visual Studio Code\Ämnesövergripande\go2sweden\obj\Debug\netcoreapp2.0\go2sweden.pdb
 C:\Users\Mt. West\Documents\Visual Studio Code\Ämnesövergripande\go2sweden\obj\Debug\netcoreapp2.0\go2sweden.csprojResolveAssemblyReference.cache
+C:\Users\Per\Documents\GitHub\go2sweden\bin\Debug\netcoreapp2.0\go2sweden.deps.json
+C:\Users\Per\Documents\GitHub\go2sweden\bin\Debug\netcoreapp2.0\go2sweden.runtimeconfig.json
+C:\Users\Per\Documents\GitHub\go2sweden\bin\Debug\netcoreapp2.0\go2sweden.runtimeconfig.dev.json
+C:\Users\Per\Documents\GitHub\go2sweden\bin\Debug\netcoreapp2.0\go2sweden.dll
+C:\Users\Per\Documents\GitHub\go2sweden\bin\Debug\netcoreapp2.0\go2sweden.pdb
+C:\Users\Per\Documents\GitHub\go2sweden\obj\Debug\netcoreapp2.0\go2sweden.csproj.CoreCompileInputs.cache
+C:\Users\Per\Documents\GitHub\go2sweden\obj\Debug\netcoreapp2.0\go2sweden.AssemblyInfoInputs.cache
+C:\Users\Per\Documents\GitHub\go2sweden\obj\Debug\netcoreapp2.0\go2sweden.AssemblyInfo.cs
+C:\Users\Per\Documents\GitHub\go2sweden\obj\Debug\netcoreapp2.0\go2sweden.dll
+C:\Users\Per\Documents\GitHub\go2sweden\obj\Debug\netcoreapp2.0\go2sweden.pdb

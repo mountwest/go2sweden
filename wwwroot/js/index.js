@@ -1,5 +1,14 @@
 $(document).ready(function () {
-
+    var input = document.getElementById("fromDestination");
+    input.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("apisearch").click();
+        }
+    });
+   
+   
+   
     $('#apisearch').on('click', function () {
 
         var data =
@@ -23,9 +32,34 @@ $(document).ready(function () {
                     $("#names").empty();
                     return names.map(function (city) {
                         $('#names > tbody:last-child').append('<tr><td>' + city.name + "</td><td>" + parseInt(city.totalDuration/60) + "h " + (city.totalDuration%60) + "min" + "</td><td>" + city.indicativePrices[0].price + " " + city.indicativePrices[0].currency + '</td></tr>' );
+                    
+                   
+                   
                     })
                 });
-        }
+       
+       
+            }
+            if (data.fromDestination !== '' && data.toDestination !== '') {
+                $.ajax(
+                    {
+                        url: 'http://free.rome2rio.com/api/1.4/json/Search?key=S2Q8spaR&oName=' + data.fromDestination + '&dName=' + data.toDestination + '&noRideshare',
+                        type: 'GET',
+                        dataType: "json",
+                        processData: false,
+                        cache: false
+                    }).fail(function (jqXHR, textStatus, errorThrown) {
+                        alert("Something went wrong (" + textStatus + ")");
+                    }).done(function (transportresult, textStatus, jqXHR) {
+                        let transportmode = transportresult.vehicles;
+                        $("#transportmode").empty();
+                        return transportmode.map(function (tmode) {
+                        $('#transportmode > tbody:last-child').append('<tr  class="popup table" onClick=\'myFunction()\'> <td>' + tmode.name + '</tr><td>');
+                        
+                    })
+                    });
+            }
+
     });
 
     $(".scroll").click(function (event) {
@@ -70,6 +104,16 @@ $(document).ready(function () {
 
     
 });
+
+// When the user clicks on div, open the popup
+
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+
+}
+
+
 
 angular.module("myApp" , []).controller("myCtrl", function($scope){
     $scope.produkter = [
