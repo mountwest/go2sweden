@@ -94,26 +94,32 @@
     <tr>
       <th scope="col">Type</th>
       <th scope="col">Duration</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Price</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="route in routes">
-      <td>{{route.name}}</td>
-      <td>{{timeChange(route.totalDuration)}}</td>
-      <td><span ng-repeat="segment in route.segments"><span class="{{setIcon(segment.vehicle)}}"></span> </span></td>
-      <td>{{segment.vehicle}}</td>
-	  
 
-      
+          <td ng-click="toggle=!toggle"><span ng-repeat="segment in route.segments"><span ng-hide="toggle" class="{{setIcon(vehicles[segment.vehicle].kind)}}"> </span>  
+<div ng-show="toggle">
+<h3><span class="{{setIcon(vehicles[segment.vehicle].kind)}}"></span>{{" " + vehicles[segment.vehicle].name}}</h3>
+<h6>Travel duration :  {{timeChange(segment.transitDuration)}}</h6>
+<div>{{places[segment.depPlace].shortName}} to {{places[segment.arrPlace].shortName}} </div>
+<p>{{timeChange(segment.transferDuration)}}</p>
+</div>
+ </span>
+</td>
+
+	<td>{{timeChange(route.totalDuration)}}</td>
+    <td>{{route.indicativePrices[0].price + " " + route.indicativePrices[0].currency}}</td>	  
     </tr>
   </tbody>
 </table>
 
 <!-- Har två knappar redo för att vissa och gömma information
-<button ng-click="goEvent();" ng-hide="going">Start</button>
-<button ng-click="goEvent();" ng-show="going">Stop</button> -->
+<button ng-click="tripShow();" ng-hide="showTrip">Start</button>
+<button ng-click="tripShow();" ng-show="showTrip">Stop</button>
+<div ng-show="showTrip">hej</div><div ng-hide="showTrip">hejdå</div> -->
 	</div>
 	<!-- middle slider -->
 	<div class="w3agile-spldishes py-sm-5 py-4">
