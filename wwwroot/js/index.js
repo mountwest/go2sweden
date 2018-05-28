@@ -9,58 +9,58 @@ $(document).ready(function () {
    
    
    
-    $('#apisearch').on('click', function () {
+    // $('#apisearch').on('click', function () {
 
-        var data =
-            {
-                fromDestination: $('#fromDestination').val().trim(),
-                toDestination: $('#toDestination').val().trim(),
-            };
+    //     var data =
+    //         {
+    //             fromDestination: $('#fromDestination').val().trim(),
+    //             toDestination: $('#toDestination').val().trim(),
+    //         };
 
-        if (data.fromDestination !== '' && data.toDestination !== '') {
-            $.ajax(
-                {
-                    url: 'http://free.rome2rio.com/api/1.4/json/Search?key=S2Q8spaR&oName=' + data.fromDestination + '&dName=' + data.toDestination + '&noRideshare',
-                    type: 'GET',
-                    dataType: "json",
-                    processData: false,
-                    cache: false
-                }).fail(function (jqXHR, textStatus, errorThrown) {
-                    alert("Something went wrong (" + textStatus + ")");
-                }).done(function (result, textStatus, jqXHR) {
-                    let names = result.routes;
-                    $("#names").empty();
-                    return names.map(function (city) {
-                        $('#names > tbody:last-child').append('<tr><td>' + city.name + "</td><td>" + parseInt(city.totalDuration/60) + "h " + (city.totalDuration%60) + "min" + "</td><td>" + city.indicativePrices[0].price + " " + city.indicativePrices[0].currency + '</td></tr>' );
+    //     if (data.fromDestination !== '' && data.toDestination !== '') {
+    //         $.ajax(
+    //             {
+    //                 url: 'http://free.rome2rio.com/api/1.4/json/Search?key=S2Q8spaR&oName=' + data.fromDestination + '&dName=' + data.toDestination + '&noRideshare',
+    //                 type: 'GET',
+    //                 dataType: "json",
+    //                 processData: false,
+    //                 cache: false
+    //             }).fail(function (jqXHR, textStatus, errorThrown) {
+    //                 alert("Something went wrong (" + textStatus + ")");
+    //             }).done(function (result, textStatus, jqXHR) {
+    //                 let names = result.routes;
+    //                 $("#names").empty();
+    //                 return names.map(function (city) {
+    //                     $('#names > tbody:last-child').append('<tr><td>' + city.name + "</td><td>" + parseInt(city.totalDuration/60) + "h " + (city.totalDuration%60) + "min" + "</td><td>" + city.indicativePrices[0].price + " " + city.indicativePrices[0].currency + '</td></tr>' );
                     
                    
                    
-                    })
-                });
+    //                 })
+    //             });
        
        
-            }
-            if (data.fromDestination !== '' && data.toDestination !== '') {
-                $.ajax(
-                    {
-                        url: 'http://free.rome2rio.com/api/1.4/json/Search?key=S2Q8spaR&oName=' + data.fromDestination + '&dName=' + data.toDestination + '&noRideshare',
-                        type: 'GET',
-                        dataType: "json",
-                        processData: false,
-                        cache: false
-                    }).fail(function (jqXHR, textStatus, errorThrown) {
-                        alert("Something went wrong (" + textStatus + ")");
-                    }).done(function (transportresult, textStatus, jqXHR) {
-                        let transportmode = transportresult.vehicles;
-                        $("#transportmode").empty();
-                        return transportmode.map(function (tmode) {
-                        $('#transportmode > tbody:last-child').append('<tr  class="popup table" onClick=\'myFunction()\'> <td>' + tmode.name + '</tr><td>');
+    //         }
+    //         if (data.fromDestination !== '' && data.toDestination !== '') {
+    //             $.ajax(
+    //                 {
+    //                     url: 'http://free.rome2rio.com/api/1.4/json/Search?key=S2Q8spaR&oName=' + data.fromDestination + '&dName=' + data.toDestination + '&noRideshare',
+    //                     type: 'GET',
+    //                     dataType: "json",
+    //                     processData: false,
+    //                     cache: false
+    //                 }).fail(function (jqXHR, textStatus, errorThrown) {
+    //                     alert("Something went wrong (" + textStatus + ")");
+    //                 }).done(function (transportresult, textStatus, jqXHR) {
+    //                     let transportmode = transportresult.vehicles;
+    //                     $("#transportmode").empty();
+    //                     return transportmode.map(function (tmode) {
+    //                     $('#transportmode > tbody:last-child').append('<tr  class="popup table" onClick=\'myFunction()\'> <td>' + tmode.name + '</tr><td>');
                         
-                    })
-                    });
-            }
+    //                 })
+    //                 });
+    //         }
 
-    });
+    // });
 
     $(".scroll").click(function (event) {
         event.preventDefault();
