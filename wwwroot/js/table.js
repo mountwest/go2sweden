@@ -1,44 +1,80 @@
 var myapp = angular.module("myapp", []);
 
-myapp.controller("ApiController", function ($scope, $http) {
+myapp.controller("ApiController", function($scope, $http){
+// Har en funktion redo för att gömma och vissa information
+//     $scope.going = false;
 
-    $scope.r2Rdata = {};
-    $scope.map = {};
-    $scope.markers = [];
-    $scope.polylines = [];
-    $scope.LatitudeLongitude = [];
+$scope.goEvent = function(){
+   $scope.going = !$scope.going;
+   if($scope.going){  
+       $scope.go();
+   }else{
+       $scope.stop();
+   }      
+}
+$scope.showTrip = false;
 
-    $scope.getData = function () {
+$scope.tripShow = function(){
+   $scope.showTrip = !$scope.showTrip;
+   if($scope.showTrip){  
+       $scope.show();
+   }else{
+       $scope.hide();
+   }      
+}
 
-        let from = $scope.depatureDestination;
-        let to = $scope.arrivalDestination;
-        console.log(from);
+    $scope.getData = function(){
 
-        $http.get('http://free.rome2rio.com/api/1.4/json/Search?key=S2Q8spaR&oName=' + from + '&dName=' + to + '&noRideshare')
-            .then(function (response) {
-                $scope.r2Rdata = response.data;
-                $scope.routes = response.data.routes;
-                $scope.vehicles = response.data.vehicles;
-                $scope.places = response.data.places;
+    let from = $scope.depatureDestination;
+    let to = $scope.arrivalDestination;
+    console.log(from);
+    
+    $http.get('http://free.rome2rio.com/api/1.4/json/Search?key=S2Q8spaR&oName=' + from + '&dName=' + to + '&noRideshare')
+        .then(function (response){
+            $scope.result = response.data;
+            $scope.routes = response.data.routes;
+            $scope.vehicles = response.data.vehicles;
+            $scope.places = response.data.places;
 
-                $scope.daniel = "buffered";
+            $scope.daniel = "buffered";
+            
+            $scope.toDest = function(){
+                let toDesti = " to " +  to;
+                return toDesti;
+            }
 
-                var startLatLng = new google.maps.LatLng($scope.r2Rdata.places[0].lat, $scope.r2Rdata.places[0].lng);
-                var endLatLng = new google.maps.LatLng($scope.r2Rdata.places[1].lat, $scope.r2Rdata.places[1].lng);
+            var startLatLng = new google.maps.LatLng($scope.r2Rdata.places[0].lat, $scope.r2Rdata.places[0].lng);
+            var endLatLng = new google.maps.LatLng($scope.r2Rdata.places[1].lat, $scope.r2Rdata.places[1].lng);
 
-                addPlaces($scope.r2Rdata.places);
-                setPolylineStarterFunction($scope.r2Rdata);
+            addPlaces($scope.r2Rdata.places);
+            setPolylineStarterFunction($scope.r2Rdata);
+
+            $scope.timeChange = function(timeinmin){
 
 
-                $scope.timeChange = function (timeinmin) {
 
-                    let hours = parseInt(timeinmin / 60);
-                    let minutes = timeinmin % 60;
-                    let timeToDestination;
+                let hours = parseInt(timeinmin/60);
+                let minutes = timeinmin%60;
+                let timeToDestination ;
 
-                    hours < 1 ? timeToDestination = minutes + "min" : timeToDestination = hours + "h " + minutes + "min";
+                 hours < 1 ? timeToDestination = minutes + "min" : timeToDestination = hours + "h "+ minutes + "min";
 
-                    return timeToDestination;
+                return timeToDestination;
+            }
+            $scope.timeTransfer = function(timeinmin){
+
+                let hours = parseInt(timeinmin/60);
+                let minutes = timeinmin%60;
+                let timeToDestination ;
+
+                if (hours < 1 && minutes < 1){
+                    timeToDestination = " ";
+                
+                }else if (hours < 1 && minutes >= 1 ){
+                    timeToDestination = "Transfer time : " + minutes + "min" ;
+                }else
+                {
+                    timeToDestination =  "Transfer time : " + hours + "h "+ minutes + "min";
                 }
                 $scope.timeTransfer = function (timeinmin) {
 
@@ -134,4 +170,24 @@ myapp.controller("ApiController", function ($scope, $http) {
             }
         }
     }
+
 })
+
+myapp.directive('googleplace', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attrs, model) {
+            var options = {
+                types: [],
+                componentRestrictions: {}
+            };
+            scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
+
+            google.maps.event.addListener(scope.gPlace, 'place_changed', function() {
+                scope.$apply(function() {
+                    model.$setViewValue(element.val());                
+                });
+            });
+        }
+    };
+});
