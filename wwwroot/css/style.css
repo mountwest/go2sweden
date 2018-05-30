@@ -569,25 +569,39 @@ a.button:hover {
     text-decoration: none;
     position: fixed;
     bottom: 24px;
+    border-radius: 20%;
     right: 1%;
     overflow: hidden;
-    z-index: 999;
-    width: 64px;
-    height: 64px;
+    
+    
     border: none;
     text-indent: 100%;
-    background: url("../images/projektlogga.png") no-repeat 0px 0px;
+    width: 0;
+	height: 0;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-bottom: 100px solid #2ec8a6;
+   
+   
 }
 
-#toTopHover {
-    width: 64px;
-    height: 64px;
-    display: block;
+#toTop:Hover {
+    display: none;
+    text-decoration: none;
+    position: fixed;
+    bottom: 24px;
+    border-radius: 20%;
+    right: 1%;
     overflow: hidden;
-    float: right;
-    opacity: 0;
-    -moz-opacity: 0;
-    filter: alpha(opacity=0);
+    
+    opacity: 0.4;
+    border: none;
+    text-indent: 100%;
+    width: 0;
+	height: 0;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-bottom: 650px solid #2ec8a6;
 }
 
 /*-- //bottom-to-top --*/
