@@ -42,22 +42,25 @@ $scope.tripShow = function(){
                 let minutes = timeinmin%60;
                 let timeToDestination ;
 
+                 hours < 1 ? timeToDestination = minutes + "min" : timeToDestination = hours + "h "+ minutes + "min";
+
+                return timeToDestination;
+            }
+            $scope.timeTransfer = function(timeinmin){
+
+                let hours = parseInt(timeinmin/60);
+                let minutes = timeinmin%60;
+                let timeToDestination ;
+
                 if (hours < 1 && minutes < 1){
                     timeToDestination = " ";
                 
                 }else if (hours < 1 && minutes >= 1 ){
-                    timeToDestination = minutes + "min" ;
+                    timeToDestination = "Transfer time : " + minutes + "min" ;
                 }else
                 {
-                    timeToDestination = hours + "h "+ minutes + "min";
+                    timeToDestination =  "Transfer time : " + hours + "h "+ minutes + "min";
                 }
-
-                // hours < 1 ? timeToDestination = minutes + "min" : timeToDestination = hours + "h "+ minutes + "min";
-
-                 // minutes < 1 && hours < 1  ? timeToDestination = " " : timeToDestination = "Waiting time : " + hours + "h " + minutes + "min" ;
-                
-                
-
 
                 return timeToDestination;
             }
