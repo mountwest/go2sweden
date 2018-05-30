@@ -8,10 +8,10 @@ var LatitudeLongitude = [];
 var selectedRoute = 0;
 var path;
 var pathColor = [
-    "#ff0000",
+    "#00ff00",
     "#ffff00",
     "#0f0000",
-    "#00ff00",
+    "#ff0000",
     "#00fff0",
     "#ff00f0",
     "#f00f00",
@@ -94,7 +94,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, startLat
 function setPolylineStarterFunction(r2Rdata) {
 
     if (path != undefined){
-        path.setMap(null);
+            path = [];
+            path.setMap(map);
     }
 
     var route = [];
@@ -130,20 +131,6 @@ function setPolylineStarterFunction(r2Rdata) {
             path.setMap(map);
         }
     }
-
-    // var path = new google.maps.Polyline({
-    //     path: route,
-    //     geodesic: false,
-    //     strokeColor: '#FF00FF',
-    //     strokeOpacity: 1.0,
-    //     strokeWeight: 4
-    // });
-
-    // console.log(path)
-
-    // // calculateAndDisplayRoute(directionsService, directionsDisplay, startLatLng, endLatLng);
-
-    // path.setMap(map);
 }
 
 // Adds a marker to the map and push to the array.
