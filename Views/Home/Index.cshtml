@@ -87,33 +87,39 @@
 <a id="searchResults"></a>
 
 	<div class="container">
-		<h1>{{depatureDestination}}-{{arrivalDestination}}</h1>
+		<h1>{{depatureDestination + "  " + arrivalDestination}}</h1>
 		<br>
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Type</th>
-      <th scope="col">Duration</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Resväg</th>
+      <th scope="col">Restid</th>
+      <th scope="col">Pris</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="route in routes">
-      <td>{{route.name}}</td>
-      <td>{{timeChange(route.totalDuration)}}</td>
-      <td><span ng-repeat="segment in route.segments"><span class="{{setIcon(segment.vehicle)}}"></span> </span></td>
-      <td>{{segment.vehicle}}</td>
-	  
 
-      
+          <td ng-click="toggle=!toggle"><span ng-repeat="segment in route.segments"><span ng-hide="toggle" class="{{setIcon(vehicles[segment.vehicle].kind)}}"> </span>  
+<div ng-show="toggle">
+<h3><span class="{{setIcon(vehicles[segment.vehicle].kind)}}"></span>{{" " + vehicles[segment.vehicle].name}}</h3>
+<p>{{timeTransfer(segment.transferDuration)}}</p>
+<h6>Travel duration :  {{timeChange(segment.transitDuration)}}</h6>
+<div>{{places[segment.depPlace].shortName}} to {{places[segment.arrPlace].shortName}} </div><br>
+</div>
+ </span>
+</td>
+
+	<td>{{timeChange(route.totalDuration)}}</td>
+    <td>{{route.indicativePrices[0].price + " " + route.indicativePrices[0].currency}}</td>	  
     </tr>
   </tbody>
 </table>
 
 <!-- Har två knappar redo för att vissa och gömma information
-<button ng-click="goEvent();" ng-hide="going">Start</button>
-<button ng-click="goEvent();" ng-show="going">Stop</button> -->
+<button ng-click="tripShow();" ng-hide="showTrip">Start</button>
+<button ng-click="tripShow();" ng-show="showTrip">Stop</button>
+<div ng-show="showTrip">hej</div><div ng-hide="showTrip">hejdå</div> -->
 	</div>
 	<!-- middle slider -->
 	<div class="w3agile-spldishes py-sm-5 py-4">
@@ -179,9 +185,9 @@
 	<!-- middle section -->
 	<div class="middle-w3l py-sm-5 py-4">
 		<div class="container py-xl-5 py-lg-3">
-						<h2>Har du frågor kring evenemanget?</h2>
-			<p class="my-md-4 my-2">Vi finns tillgängliga dynget runt ända fram till sista OS grenen</p>
-			<a asp-area="" asp-controller="Home" asp-action="Kontakt" class="btn btn-secondary btn-lg button2-w3l mt-4" role="button" aria-pressed="true">Kontakta oss</a>
+						<h2>Olympiska spelen 2024</h2>
+			<p class="my-md-4 my-2">Här kan du enkelt och smidigt hitta din resa till de olika OS städerna</p>
+			<a href="#" class="btn btn-secondary btn-lg button2-w3l mt-4" role="button" aria-pressed="true">Upp till toppen</a>
 		</div>
 	</div>
 	<!-- //middle section -->
