@@ -118,7 +118,7 @@ $scope.tripShow = function(){
                     
                 }
 
-               
+               return icon;
                 
             }
 
