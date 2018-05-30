@@ -6,37 +6,37 @@ var directionsService;
 var directionsDisplay;
 var LatitudeLongitude = []; 
 
-function getData() {
-//   var oName = document.getElementById("oDestination").value;
-//   var dName = document.getElementById("toDestinationSelect").value;
-//   var currencyCode = "sv";
+// function getData() {
+// //   var oName = document.getElementById("oDestination").value;
+// //   var dName = document.getElementById("toDestinationSelect").value;
+// //   var currencyCode = "sv";
 
-  axios
-    .get("http://free.rome2rio.com/api/1.4/json/Search", {
-      params: {
-        key: "S2Q8spaR",
-        oName: oName,
-        dName: dName,
-        currencyCode: currencyCode
-      }
-    })
-    .then(function(response) {
-      var r2Rdata = response.data;
-      var startLatLng = new google.maps.LatLng(r2Rdata.places[0].lat, r2Rdata.places[0].lng);
-      var endLatLng = new google.maps.LatLng(r2Rdata.places[1].lat, r2Rdata.places[1].lng);
-      console.log(r2Rdata);
-      addPlaces(r2Rdata.places);
-      calculateAndDisplayRoute(directionsService, directionsDisplay, startLatLng, endLatLng);
-      handelATags(r2Rdata);
+//   axios
+//     .get("http://free.rome2rio.com/api/1.4/json/Search", {
+//       params: {
+//         key: "S2Q8spaR",
+//         oName: oName,
+//         dName: dName,
+//         currencyCode: currencyCode
+//       }
+//     })
+//     .then(function(response) {
+//       var r2Rdata = response.data;
+//       var startLatLng = new google.maps.LatLng(r2Rdata.places[0].lat, r2Rdata.places[0].lng);
+//       var endLatLng = new google.maps.LatLng(r2Rdata.places[1].lat, r2Rdata.places[1].lng);
+//       console.log(r2Rdata);
+//       addPlaces(r2Rdata.places);
+//       calculateAndDisplayRoute(directionsService, directionsDisplay, startLatLng, endLatLng);
+//       handelATags(r2Rdata);
 
-      //console.log(r2Rdata.routes[0].segments[0].path);
-      //setPolylineStarterFunction(r2Rdata);
+//       //console.log(r2Rdata.routes[0].segments[0].path);
+//       //setPolylineStarterFunction(r2Rdata);
 
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-}
+//     })
+//     .catch(function(error) {
+//       console.log(error);
+//     });
+// }
 
 function setPolylineStarterFunction(r2Rdata) {
     var dataPath = r2Rdata.routes[0].segments[0].path;
@@ -211,26 +211,26 @@ function initMap() {
 //   var card = document.getElementById('search-card');
 //   var input = document.getElementById('oDestination');
 
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(card);
+//   map.controls[google.maps.ControlPosition.TOP_CENTER].push(card);
 
-  setTimeout(function name(params) {
-    card.className = "card text-white bg-primary m-5 d-block";
-  }, 1000);
+//   setTimeout(function name(params) {
+//     card.className = "card text-white bg-primary m-5 d-block";
+//   }, 1000);
 
-  var autocomplete = new google.maps.places.Autocomplete(input);
+//   var autocomplete = new google.maps.places.Autocomplete(input);
 
-  autocomplete.addListener('place_changed', function() {
+//   autocomplete.addListener('place_changed', function() {
 
-    var place = autocomplete.getPlace();
-    if (!place.geometry) {
-      console.log("No details available for input: '" + place.name + "'");
-      return;
-    }
+//     var place = autocomplete.getPlace();
+//     if (!place.geometry) {
+//       console.log("No details available for input: '" + place.name + "'");
+//       return;
+//     }
 
-      map.setCenter(place.geometry.location);
-      console.log(place.geometry.location);
-      map.setZoom(8);
-  });
+//       map.setCenter(place.geometry.location);
+//       console.log(place.geometry.location);
+//       map.setZoom(8);
+//   });
 
   directionsDisplay.setMap(map);
 

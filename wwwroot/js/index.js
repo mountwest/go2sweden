@@ -115,19 +115,19 @@ function myFunction() {
 
 
 
-angular.module("myApp" , []).controller("myCtrl", function($scope){
-    $scope.produkter = [
-        {id:'', namn:'', pris:8000},
-        {id:'', namn:'', pris:9000},
-        {id:'', namn:'', pris:5000},
-        {id:'', namn:'', pris:12000},
-        {id:'', namn:'', pris:15000},
-    ] ;
-    $scope.orderByMe = function(x , desc=false){
-        $scope.myOrderBy = x;
-        // Lägg till "-" för att sortera stigande (högsta pris högst upp)
-        if(desc){
-            $scope.myOrderBy = "-" + x;
-        }
-    }
-})
+// angular.module("myApp" , []).controller("myCtrl", function($scope){
+//     $scope.produkter = [
+//         {id:'', namn:'', pris:8000},
+//         {id:'', namn:'', pris:9000},
+//         {id:'', namn:'', pris:5000},
+//         {id:'', namn:'', pris:12000},
+//         {id:'', namn:'', pris:15000},
+//     ] ;
+//     $scope.orderByMe = function(x , desc=false){
+//         $scope.myOrderBy = x;
+//         // Lägg till "-" för att sortera stigande (högsta pris högst upp)
+//         if(desc){
+//             $scope.myOrderBy = "-" + x;
+//         }
+//     }
+// })

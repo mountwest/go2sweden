@@ -10,7 +10,7 @@
 	<script src="js/easing.js"></script>
     <script src="~/js/index.js"></script>
     <link rel="stylesheet" href="~/css/index.css"></link>
-<link rel="stylesheet" href="~/css/site.css"></link>
+	<link rel="stylesheet" href="~/css/site.css"></link>
 }
 
 <body ng-app="myapp">
@@ -45,66 +45,34 @@
 					
 					</div>
 					
-				
-		<!-- //carousel slider -->
 
-	<!-- //header -->
+					<!-- //welcome -->
+					<br>
+					<a id="searchResults"></a>
 
-	<!-- welcome -->
-	<!-- <a id="searchResults"></a>
-	<div class="about py-sm-5 py-4">
-		
-		<div class="container">
+					<div id="googleMap" style="height:600px;"></div> 
 
-				<div id="googleMap" style="height:600px;"></div> 
-				
-			<ul id="names"></ul>
-				<div ng-controller="myCtrl" class="container">
-					<h2>Visa alla färdmedel</h2>
-					<h4>Klicka på kolumnrubrikerna för att sortera listan</h4>
-					<table class="table table-hover table-sm" id="names">
-						<tbody>
-							<tr>
-								<th ng-click="orderByMe('id')">Färdmedel</th>
-								<th ng-click="orderByMe('namn')">Tid</th>
-								<th>
-									<span class="pil" ng-click="orderByMe('pris', true)">&uarr;</span>
-									Pris 
-									<span class="pil" ng-click="orderByMe('pris')">&darr;</span>
-									
-								</th>
-								<th ng-click="orderByMe('test')">Test</th>
-							</tr>
-						</tbody>
+					<div class="container">
+					<table class="table">
+					<thead class="thead-dark">
+						<tr>
+						<th scope="col">Icons</th>
+						<th scope="col">First</th>
+						<th scope="col">Last</th>
+						<th scope="col">Handle</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="route in routes">
+						<td>{{route.name}}</td>
+						<td>{{timeChange(route.totalDuration)}}</td>
+						<td><span ng-repeat="segment in route.segments">{{vehicles[segment.vehicle].name + " "}}</span></td>
+						<td>{{route.name}}</td>
+
+						
+						</tr>
+					</tbody>
 					</table>
-				</div>
-		</div>
-	</div> -->
-	
-	<!-- //welcome -->
-	<br>
-<a id="searchResults"></a>
-	<div class="container">
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Icons</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="route in routes">
-      <td>{{route.name}}</td>
-      <td>{{timeChange(route.totalDuration)}}</td>
-      <td><span ng-repeat="segment in route.segments">{{vehicles[segment.vehicle].name + " "}}</span></td>
-      <td>{{route.name}}</td>
-
-      
-    </tr>
-  </tbody>
-</table>
 
 <!-- Har två knappar redo för att vissa och gömma information
 <button ng-click="goEvent();" ng-hide="going">Start</button>
@@ -186,17 +154,12 @@
 	
 	<!-- //footer -->
 
-<<<<<<< HEAD
 	<div class="about py-sm-5 py-4">
-=======
-<div class="about py-sm-5 py-4">
->>>>>>> b0290d2142b179077c5ee24ae894bb452f344da1
 		
 		<div class="container">
 
 				
 			<ul id="transportmode"></ul>
-<<<<<<< HEAD
 				<div class="container">
 					<h2>Visa alla färdmedel</h2>
 					<h4>Klicka på kolumnrubrikerna för att sortera listan</h4>
@@ -206,29 +169,13 @@
 								<th ng-click="orderByMe('id')">Färdmedel</th>
 							</tr>
 						</tbody>
-=======
-				<div class="popup"  ng-app="myApp" ng-controller="myCtrl" class="container">
-					<h2>Visa alla färdmedel</h2>
-					<h4>Klicka på kolumnrubrikerna för att sortera listan</h4>
-					<table class="table popup table-onClick='myFunction()' table-sm" id="transportmode">
-						<tbody>
-							<tr>
-								<th ng-click="orderByMe('id')">Färdmedel</th>
-							<span class="popuptext" id="myPopup">A Simple Popup!</span>
-							</tr>
-						</tbody>
-					
->>>>>>> b0290d2142b179077c5ee24ae894bb452f344da1
 					</table>
 				</div>
 		</div>
 	</div>
 
-<<<<<<< HEAD
 	
 
-=======
->>>>>>> b0290d2142b179077c5ee24ae894bb452f344da1
 
 	<a href="#" id="toTop" style="display: block;">
 		<span id="toTopHover" style="opacity: 1;"> </span>
