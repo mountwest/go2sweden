@@ -27,7 +27,8 @@ myapp.controller("ApiController", function ($scope, $http) {
 
         let from = $scope.depatureDestination;
         let to = $scope.arrivalDestination;
-        console.log(from);
+        
+        from = from.replace(", ", "-");
 
         $http.get('http://free.rome2rio.com/api/1.4/json/Search?key=S2Q8spaR&oName=' + from + '&dName=' + to + '&noRideshare')
             .then(function (response) {
@@ -172,14 +173,18 @@ myapp.controller("ApiController", function ($scope, $http) {
 
 
 myapp.directive('googleplace', function () {
+
     return {
         require: 'ngModel',
         link: function (scope, element, attrs, model) {
             var options = {
                 types: [],
-                componentRestrictions: {}
+                componentRestrictions: null
             };
+
             scope.gPlace = new google.maps.places.Autocomplete(element[0], options);
+
+            console.log(scope.gPlace);
 
             google.maps.event.addListener(scope.gPlace, 'place_changed', function () {
                 scope.$apply(function () {

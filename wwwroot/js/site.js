@@ -114,7 +114,7 @@ function setPolylineStarterFunction(r2Rdata) {
                 path: surfaceRoute,
                 geodesic: false,
                 strokeColor: pathColor[segment.vehicle],
-                strokeOpacity: 1.0,
+                strokeOpacity: 0.7,
                 strokeWeight: 4
             });
 
@@ -122,7 +122,7 @@ function setPolylineStarterFunction(r2Rdata) {
             path.setMap(map);
 
         } else {
-            
+
             var airRoute = []
             airRoute.push({ lat: r2Rdata.places[segment.depPlace].lat, lng: r2Rdata.places[segment.depPlace].lng })
             airRoute.push({ lat: r2Rdata.places[segment.arrPlace].lat, lng: r2Rdata.places[segment.arrPlace].lng })
@@ -130,7 +130,7 @@ function setPolylineStarterFunction(r2Rdata) {
                 path: airRoute,
                 geodesic: false,
                 strokeColor: '#FF00FF',
-                strokeOpacity: 1.0,
+                strokeOpacity: 0.7,
                 strokeWeight: 4
             });
 
