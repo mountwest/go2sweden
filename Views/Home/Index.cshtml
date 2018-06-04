@@ -138,6 +138,51 @@
 	</div>
 	<!-- //feature -->
 
+	<div class="container">
+
+<table class="table table-hover">
+		<thead>
+			<tr>
+				
+				<th ng-click="getschema(); getcityschema()">Alla</th>
+				<th ng-click="getschema()">Stockholm</th>
+				<th ng-click="getschema()">Åre</th>
+				<th ng-click="getschema()">Falun</th>
+
+			</tr>
+		</thead>
+
+		</table>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				
+				<th>Bild</th>
+				<th>Typ</th>
+
+			</tr>
+		</thead>
+
+		<tbody ng-repeat="cityd in alldatacity">
+			<tr ng-repeat="city in alldata">
+				<td>
+
+					<img class="lazyOwl img-fluid" src="images/{{city.sports_img}}" />
+				</td>
+				<td>
+					<h4> {{city.sports_name_swe}}</h4>
+					
+
+				</td>
+				
+			</tr>
+		</tbody>
+
+	</table>
+
+	</div>
+
 	<!-- middle section -->
 	<div class="middle-w3l py-sm-5 py-4">
 		<div class="container py-xl-5 py-lg-3">

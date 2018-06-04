@@ -172,6 +172,20 @@ myapp.controller("ApiController", function ($scope, $http) {
             });
     }
 
+    $scope.getschema = function (){
+        $http.get('http://steffo.info/toswe-api/toswe-sports.php')
+        .then(function(response){
+            $scope.alldata = response.data;
+        })
+    }
+
+    $scope.getcityschema = function (){
+        $http.get('http://steffo.info/toswe-api/toswe-events.php')
+        .then(function(response){
+            $scope.alldatacity = response.data;
+        })
+    }
+
 })
 
 
@@ -197,3 +211,4 @@ myapp.directive('googleplace', function () {
         }
     };
 })
+
