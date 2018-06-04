@@ -37,6 +37,8 @@ $scope.tripShow = function(){
             $scope.places = response.data.places;
 
             $scope.daniel = "buffered";
+            console.log(response.data);
+            console.log(pathColor[12]);
             
             $scope.toDest = function(){
                 let toDesti = " to " +  to;
@@ -81,40 +83,40 @@ $scope.tripShow = function(){
                 
                 switch (transporKind){
                     case transporKind = "train" : 
-                    icon = "fas fa-train fa-2x";
+                    icon = "fa fa-train fa-lg train";
                     break;
                     case transporKind = "plane" :
-                    icon = "fas fa-plane fa-2x";
+                    icon = "fa fa-plane fa-lg plane";
                     break;
                     case transporKind = "bus" :
-                    icon = "fas fa-bus fa-2x";
+                    icon = "fa fa-bus fa-lg bus";
                     break;
                     case transporKind = "night bus" :
-                    icon = "fas fa-bus fa-2x";
+                    icon = "fa fa-bus fa-lg nightbus";
                     break;
                     case transporKind = "car":
-                    icon = "fas fa-car fa-2x";
+                    icon = "fa fa-car fa-lg car";
                     break;
                     case transporKind = "shuttle" :
-                    icon = "fas fa-bus fa-2x";
+                    icon = "fa fa-car fa-lg shuttle";
                     break;
                     case transporKind = "taxi" :
-                    icon = "fas fa-taxi fa-2x";
+                    icon = "fa fa-car fa-lg taxi";
                     break;
                     case transporKind = "towncar" :
-                    icon = "fab fa-uber fa-2x";
+                    icon = "fa fa-car fa-lg towncar";
                     break;
                     case transporKind = "foot" :
-                    icon = "fas fa-walking fa-2x";
+                    icon = "fa fa-car fa-lg foot";
                     break;
                     case transporKind = "subway" :
-                    icon = "fas fa-subway fa-2x";
+                    icon = "fa fa-car fa-lg subway";
                     break;
                     case transporKind = "tram" :
-                    icon = "fas fa-train fa-2x";
+                    icon = "fa fa-car fa-lg tram";
                     break;
                     case transporKind = "ferry" :
-                    icon = "fas fa-ship fa-2x";
+                    icon = "fa fa-car fa-lg ferry";
                     break;
                     default: ;
                     icon = "ooops "  
