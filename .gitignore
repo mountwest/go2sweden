@@ -37,6 +37,7 @@ obj/Debug/netcoreapp2.0/go2sweden.csproj.FileListAbsolute.txt
 bin/Debug/netcoreapp2.0/go2sweden.pdb
 obj/Debug/netcoreapp2.0/go2sweden.dll
 obj/Debug/netcoreapp2.0/go2sweden.pdb
+<<<<<<< HEAD
 obj/Debug/netcoreapp2.0/go2sweden.pdb
 bin/Debug/netcoreapp2.0/go2sweden.pdb
 bin/Debug/netcoreapp2.0/go2sweden.runtimeconfig.dev.json
@@ -49,3 +50,6 @@ obj/go2sweden.csproj.nuget.g.props
 obj/go2sweden.csproj.nuget.cache
 obj/project.assets.json
 obj/Debug/netcoreapp2.0/go2sweden.csproj.CoreCompileInputs.cache
+=======
+>>>>>>> 5b4f7043cf2a986b242c6592fd754a9ace2be9ba
+bin/Debug/netcoreapp2.0/go2sweden.dll

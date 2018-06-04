@@ -7,6 +7,7 @@ var directionsDisplay;
 var LatitudeLongitude = [];
 var selectedRoute = 0;
 var path;
+var pathArray = [];
 var pathColor = [
     "#00ff00",
     "#ffff00",
