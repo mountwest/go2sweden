@@ -7,6 +7,7 @@ var directionsDisplay;
 var LatitudeLongitude = [];
 var selectedRoute = 0;
 var path;
+var pathArray = [];
 var pathColor = [
     "#00ff00",
     "#ffff00",
@@ -94,20 +95,21 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, startLat
 function setPolylineStarterFunction(r2Rdata) {
 
     if (path != undefined){
-            path = [];
-            path.setMap(map);
+        for(x = 0; x < pathArray.length; x++){
+            pathArray[x].setMap(null);
+        }
     }
 
     var route = [];
     for (i = 0; i < r2Rdata.routes[selectedRoute].segments.length; i++) {
         var segment = r2Rdata.routes[selectedRoute].segments[i];
         if (segment.segmentKind.match("surface")) {
+
             var surfaceRoute = [];
             decodedPath = google.maps.geometry.encoding.decodePath(segment.path);
             for (z = 0; z < decodedPath.length; z++) {
                 surfaceRoute.push(decodedPath[z]);
             }
-            console.log(r2Rdata);
             path = new google.maps.Polyline({
                 path: surfaceRoute,
                 geodesic: false,
@@ -115,9 +117,12 @@ function setPolylineStarterFunction(r2Rdata) {
                 strokeOpacity: 1.0,
                 strokeWeight: 4
             });
+
+            pathArray.push(path);
             path.setMap(map);
 
         } else {
+            
             var airRoute = []
             airRoute.push({ lat: r2Rdata.places[segment.depPlace].lat, lng: r2Rdata.places[segment.depPlace].lng })
             airRoute.push({ lat: r2Rdata.places[segment.arrPlace].lat, lng: r2Rdata.places[segment.arrPlace].lng })
@@ -128,7 +133,10 @@ function setPolylineStarterFunction(r2Rdata) {
                 strokeOpacity: 1.0,
                 strokeWeight: 4
             });
+
+            pathArray.push(path);            
             path.setMap(map);
+
         }
     }
 }
