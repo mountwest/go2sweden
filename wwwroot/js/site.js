@@ -14,14 +14,14 @@ var pathColor = [
     "#0f0000",
     "#ff0000",
     "#00fff0",
-    "#ff00f0",
-    "#f00f00",
-    "#f0f000",
-    "#ff00f0",
-    "#f0f0f0",
-    "#ff000f",
-    "#f00ff0",
-    "#f0ff00",
+    "#570f52",
+    "#8d6360",
+    "#505007",
+    "#360233",
+    "#f06c6c",
+    "#22a875",
+    "#7c057c",
+    "#2c910d",
     "#0f0000",
     "#0f0f00",
     "#ffff00",
@@ -95,21 +95,20 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, startLat
 function setPolylineStarterFunction(r2Rdata) {
 
     if (path != undefined){
-        for(x = 0; x < pathArray.length; x++){
-            pathArray[x].setMap(null);
-        }
+            path = [];
+            path.setMap(map);
     }
 
     var route = [];
     for (i = 0; i < r2Rdata.routes[selectedRoute].segments.length; i++) {
         var segment = r2Rdata.routes[selectedRoute].segments[i];
         if (segment.segmentKind.match("surface")) {
-
             var surfaceRoute = [];
             decodedPath = google.maps.geometry.encoding.decodePath(segment.path);
             for (z = 0; z < decodedPath.length; z++) {
                 surfaceRoute.push(decodedPath[z]);
             }
+            console.log(r2Rdata);
             path = new google.maps.Polyline({
                 path: surfaceRoute,
                 geodesic: false,
@@ -117,26 +116,20 @@ function setPolylineStarterFunction(r2Rdata) {
                 strokeOpacity: 0.7,
                 strokeWeight: 4
             });
-
-            pathArray.push(path);
             path.setMap(map);
 
         } else {
-
             var airRoute = []
             airRoute.push({ lat: r2Rdata.places[segment.depPlace].lat, lng: r2Rdata.places[segment.depPlace].lng })
             airRoute.push({ lat: r2Rdata.places[segment.arrPlace].lat, lng: r2Rdata.places[segment.arrPlace].lng })
             path = new google.maps.Polyline({
                 path: airRoute,
                 geodesic: false,
-                strokeColor: '#FF00FF',
+                strokeColor: pathColor[segment.vehicle],
                 strokeOpacity: 0.7,
                 strokeWeight: 4
             });
-
-            pathArray.push(path);            
             path.setMap(map);
-
         }
     }
 }
