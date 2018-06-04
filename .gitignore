@@ -45,3 +45,7 @@ obj/go2sweden.csproj.nuget.g.props
 obj/project.assets.json
 obj/Debug/netcoreapp2.0/go2sweden.dll
 obj/Debug/netcoreapp2.0/go2sweden.csproj.CoreCompileInputs.cache
+obj/go2sweden.csproj.nuget.g.props
+obj/go2sweden.csproj.nuget.cache
+obj/project.assets.json
+obj/Debug/netcoreapp2.0/go2sweden.csproj.CoreCompileInputs.cache
