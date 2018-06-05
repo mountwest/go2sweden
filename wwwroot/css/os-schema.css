@@ -1,16 +1,4 @@
 #customers > tbody > tr > td:first-child > img
-{
-    width: 20px;
-}
-#customers > tbody > tr > td:first-child > img
-{
-    width: 15px;
-}
-#customers > tbody > tr > td:first-child > img
-{
-    width: 15px;
-}
-#customers > tbody > tr > td:first-child > img
-{
-    width: 15px;
+{   
+    width: 10px;
 }

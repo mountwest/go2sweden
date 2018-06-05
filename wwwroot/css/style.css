@@ -1592,4 +1592,10 @@ figure.effect-apollo:hover figcaption::before {
     }
 }
 
+#customers{
+    height: 45px;
+    width: 30px;
+}
+
+
 /*--//responsive--*/

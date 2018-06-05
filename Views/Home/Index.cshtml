@@ -140,42 +140,69 @@
 
 	<div class="container">
 
-<table class="table table-hover">
-		<thead>
-			<tr>
+
+			
 				
-				<th ng-click="getschema(); getcityschema()">Alla</th>
-				<th ng-click="getschema()">Stockholm</th>
-				<th ng-click="getschema()">Åre</th>
-				<th ng-click="getschema()">Falun</th>
+				<a class="btn btn-primary" ng-click="getschema(); getcityschema()">Alla</a>
+				<a class="btn btn-primary" ng-click="getschema(); getcityschema(); stockholm=!stockholm">Stockholm</a>
+				<a class="btn btn-primary" ng-click="getschema(); getcityschema()">Åre</a>
+				<a class="btn btn-primary" ng-click="getschema(); getcityschema()">Falun</a> 
 
-			</tr>
-		</thead>
+			
+		
 
-		</table>
+	
 
 	<table class="table table-hover">
 		<thead>
 			<tr>
 				
-				<th>Bild</th>
-				<th>Typ</th>
+				<th scope="col">Sporter</th>
+				<th scope="col">Events</th>
 
 			</tr>
+
+			<br> <br>
 		</thead>
 
-		<tbody ng-repeat="cityd in alldatacity">
+		<tbody ng-hide="stockholm">
 			<tr ng-repeat="city in alldata">
+				<span>
 				<td>
-
-					<img class="lazyOwl img-fluid" src="images/{{city.sports_img}}" />
+<div>
+					<img id="customers" src="images/{{city.sports_img}}" />
+					</div>
 				</td>
-				<td>
+				<td ng-click="event=!event">
 					<h4> {{city.sports_name_swe}}</h4>
+					<div ng-show="event"> 
+						<h2>{{calcity(city.sports_cities_id)}}</h2>
+                     
+					 </div> 
 					
 
 				</td>
-				
+				</span>
+			</tr>
+		</tbody>
+		<tbody ng-show="stockholm">
+			<tr ng-repeat="city in alldata">
+				<span>
+				<td>
+<div>
+					<img id="customers" src="images/{{city.sports_img}}" />
+					</div>
+				</td>
+				<td ng-click="event=!event">
+					<h4> {{city.sports_name_swe}}</h4>
+					<div ng-show="event"> 
+						<h2>{{calcity(city.sports_cities_id)}}</h2>
+                     
+					 </div> 
+					
+
+				</td>
+				</span>
 			</tr>
 		</tbody>
 

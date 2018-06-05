@@ -186,6 +186,18 @@ myapp.controller("ApiController", function ($scope, $http) {
         })
     }
 
+    $scope.calcity = function(x){
+        y = " ";
+        if (x==1){
+            y = "Stockholm"
+        }else if (x==2){
+            y = "Falun"
+        }else {y="Åre"}
+
+        return y;
+    }
+    
+
 })
 
 
