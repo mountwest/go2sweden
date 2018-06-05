@@ -12537,28 +12537,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mt. West\\.nuget\\packages\\": {},
+    "C:\\Users\\Per\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mt. West\\Documents\\Visual Studio Code\\Ämnesövergripande\\go2sweden\\go2sweden.csproj",
+      "projectUniqueName": "C:\\Users\\Per\\Documents\\GitHub\\go2sweden\\go2sweden.csproj",
       "projectName": "go2sweden",
-      "projectPath": "C:\\Users\\Mt. West\\Documents\\Visual Studio Code\\Ämnesövergripande\\go2sweden\\go2sweden.csproj",
-      "packagesPath": "C:\\Users\\Mt. West\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mt. West\\Documents\\Visual Studio Code\\Ämnesövergripande\\go2sweden\\obj\\",
+      "projectPath": "C:\\Users\\Per\\Documents\\GitHub\\go2sweden\\go2sweden.csproj",
+      "packagesPath": "C:\\Users\\Per\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Per\\Documents\\GitHub\\go2sweden\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Mt. West\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Per\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

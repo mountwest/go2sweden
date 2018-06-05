@@ -101,40 +101,40 @@ myapp.controller("ApiController", function ($scope, $http) {
                         
                         switch (transporKind){
                             case transporKind = "train" : 
-                            icon = "fa fa-train fa-lg train";
+                            icon = "fas fa-train fa-lg train";
                             break;
                             case transporKind = "plane" :
-                            icon = "fa fa-plane fa-lg plane";
+                            icon = "fas fa-plane fa-lg plane";
                             break;
                             case transporKind = "bus" :
-                            icon = "fa fa-bus fa-lg bus";
+                            icon = "fas fa-bus fa-lg bus";
                             break;
                             case transporKind = "night bus" :
-                            icon = "fa fa-bus fa-lg nightbus";
+                            icon = "fas fa-bus fa-lg nightbus";
                             break;
                             case transporKind = "car":
-                            icon = "fa fa-car fa-lg car";
+                            icon = "fas fa-car fa-lg car";
                             break;
                             case transporKind = "shuttle" :
-                            icon = "fa fa-car fa-lg shuttle";
+                            icon = "fas fa-shuttle fa-lg shuttle";
                             break;
                             case transporKind = "taxi" :
-                            icon = "fa fa-car fa-lg taxi";
+                            icon = "fas fa-taxi fa-lg taxi";
                             break;
                             case transporKind = "towncar" :
-                            icon = "fa fa-car fa-lg towncar";
+                            icon = "fab fa-uber fa-lg towncar";
                             break;
                             case transporKind = "foot" :
-                            icon = "fa fa-car fa-lg foot";
+                            icon = "fas fa-walking fa-lg foot";
                             break;
                             case transporKind = "subway" :
-                            icon = "fa fa-car fa-lg subway";
+                            icon = "fas fa-subway fa-lg subway";
                             break;
                             case transporKind = "tram" :
-                            icon = "fa fa-car fa-lg tram";
+                            icon = "fas fa-tram fa-lg tram";
                             break;
                             case transporKind = "ferry" :
-                            icon = "fa fa-car fa-lg ferry";
+                            icon = "fas fa-ship fa-lg ferry";
                             break;
                             default: ;
                             icon = "ooops "  
