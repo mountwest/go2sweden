@@ -1,0 +1,4 @@
+#customers > tbody > tr > td:first-child > img
+{   
+    width: 10px;
+}
