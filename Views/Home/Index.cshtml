@@ -108,75 +108,262 @@
 	<div class="container">
 
 
-			
-				
-				<a class="btn btn-primary" ng-click="getschema(); getcityschema()">Alla</a>
-				<a class="btn btn-primary" ng-click="getschema(); getcityschema(); stockholm=!stockholm">Stockholm</a>
-				<a class="btn btn-primary" ng-click="getschema(); getcityschema()">Åre</a>
-				<a class="btn btn-primary" ng-click="getschema(); getcityschema()">Falun</a> 
+            
+                
+                <a class="btn btn-primary" ng-click="getschema(); getcityschema(); all=true; stockholm=false; are=false; falun=false;">Alla</a>
+                <a class="btn btn-primary" ng-click="getschema(); getcityschema(); all=false; stockholm=true; are=false; falun=false;">Stockholm</a>
+                <a class="btn btn-primary" ng-click="getschema(); getcityschema(); all=false; stockholm=false; are=true; falun=false;">Åre</a>
+                <a class="btn btn-primary" ng-click="getschema(); getcityschema(); all=false; stockholm=false; are=false; falun=true;">Falun</a>
 
+            
+        
+
+    
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                
+                <th scope="col">Sporter</th>
+                <th scope="col">Events</th>
+
+            </tr>
+
+            <br> <br>
+        </thead>
+
+        <tbody ng-show="all">
+            <tr ng-repeat="city in alldata">
+                <span>
+                <td>
+                    <img id="customers" src="images/{{city.sports_img}}" />
+                </td>
+                <td ng-click="event=!event">
+                    <h4> {{city.sports_name_swe}}</h4>
+                    <div ng-show="event"> 
+                        <h2>{{calcity(city.sports_cities_id)}}</h2>
+                     </div>   
+                </td>
+                </span>
+            </tr>
+        </tbody>
+        <tbody ng-show="stockholm">
+            <tr>
+
+                <td>
+                    <img id="customers" src="images/{{city.sports_img}}" />
+                </td>
+                <td ng-click="event=!event">
+                    <h4>Ceremoni</h4>
+                    <div ng-show="event"> 
+                        <h2>Fredag 9</h2>
+                     </div> 
+                </td>
+				</tr>
+			    <tr ng-click="curling=!curling">
+				<td>
+                    <img id="customers" src="images/{{city.sports_img}}" />
+                </td>
+					<td>
+                    <h4>Curling</h4>
+                    <div ng-show="curling"> 
+                        <h2>Torsdag 8</h2>
+                        <h2>Fredag 9</h2>
+                        <h2>Lördag 10</h2>
+                        <h2>Söndag 11</h2>
+                        <h2>Måndag 12</h2>
+                        <h2>Tisdag 13</h2>
+                        <h2>Onsdag 14</h2>
+                        <h2>Torsdag 15</h2>
+                        <h2>Fredag 16</h2>
+                        <h2>Lördag 17</h2>
+                        <h2>Söndag 18</h2>
+                        <h2>Måndag 19</h2>
+                        <h2>Tisdag 20</h2>
+                     </div> 
+					 </td>
+                </tr>
+				<tr ng-click="figurakning=!figurakning">
+					<td><img id="customers" src="images/{{city.sports_img}}" /></td>
+					<td><h4>Figuråkning</h4>
+					<div ng-show="figurakning">
+						<h2>Fredag 9</h2>
+						<h2>Söndag 11</h2>
+						<h2>Måndag 12</h2>
+						<h2>Onsdag 14</h2>
+						<h2>Torsdag 15</h2>
+						<h2>Fredag 16</h2>
+						<h2>Lördag 17</h2>
+						<h2>Måndag 19</h2>
+						<h2>Tisdag 20</h2>
+					</div>
+					</td>
+				</tr>
+				<tr ng-click="ishockey=!ishockey">
+					<td><img id="customers" src="images/{{city.sports_img}}" /></td>
+					<td><h4>Figuråkning</h4>
+					<div ng-show="ishockey">
+						<h2>Lördag 10</h2>
+						<h2>Söndag 11</h2>
+						<h2>Måndag 12</h2>
+						<h2>Tisdag 13</h2>
+						<h2>Onsdag 14</h2>
+						<h2>Torsdag 15</h2>
+						<h2>Fredag 16</h2>
+						<h2>Lördag 17</h2>
+						<h2>Söndag 18</h2>
+						<h2>Måndag 19</h2>
+						<h2>Tisdag 20</h2>
+					</div>
+					</td>
+				</tr>
+				<tr ng-click="figurakning=!figurakning">
+					<td><img id="customers" src="images/{{city.sports_img}}" /></td>
+					<td><h4>Figuråkning</h4>
+					<div ng-show="figurakning">
+						<h2>Fredag 9</h2>
+						<h2>Söndag 11</h2>
+						<h2>Måndag 12</h2>
+						<h2>Onsdag 14</h2>
+						<h2>Torsdag 15</h2>
+						<h2>Fredag 16</h2>
+						<h2>Lördag 17</h2>
+						<h2>Måndag 19</h2>
+						<h2>Tisdag 20</h2>
+					</div>
+					</td>
+				</tr>
+        </tbody>
+		     <tbody ng-show="are">
+            <tr ng-click="alpint=!alpint">
+					<td>
+						<img id="customers" src="images/ALP.png" /></td>
+					<td>
+						<h4>Alpint</h4>
+					<div ng-show="alpint">
+						<h5><img id="smallones" src="images/day.png" />Torsdag 8</h5>
+						<h5><img id="smallones" src="images/day.png" />Fredag 9</h5>
+						<h5><img id="smallones" src="images/day.png" />Lördag 10</h5>
+						<h5><img id="smallones" src="images/day.png" />Måndag 12</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 13</h5>
+						<h5><img id="smallones" src="images/medal.png" />Torsdag 15</h5>
+						<h5><img id="smallones" src="images/medal.png" />Fredag 16</h5>
+						<h5><img id="smallones" src="images/medal.png" />Lördag 17</h5>
+						<h5><img id="smallones" src="images/medal.png" />Lördag 18</h5>
+						<h5><img id="smallones" src="images/day.png" />Måndag 19</h5>
+						<h5><img id="smallones" src="images/day.png" />Tisdag 20</h5>
+					</div>
+					</td>
+				</tr>
+				<tr ng-click="bobsleigh=!bobsleigh">
+					<td>
+						<img id="customers" src="images/BOB.png" /></td>
+					<td><h4>Bobsleigh</h4>
+					<div ng-show="bobsleigh">
+						<h5><img id="smallones" src="images/day.png" />Onsdag 14</h5>
+						<h5><img id="smallones" src="images/day.png" />Torsdag 15</h5>
+						<h5><img id="smallones" src="images/day.png" />Fredag 16</h5>
+						<h5><img id="smallones" src="images/day.png" />Lördag 17</h5>
+						<h5><img id="smallones" src="images/day.png" />Söndag 18</h5>
+						<h5><img id="smallones" src="images/medal.png" />Måndag 19</h5>
+						<h5><img id="smallones" src="images/day.png" />Tisdag 20</h5>
+					</div>
+					</td>
+				</tr>
+                </span>
+            </tr>
+			<tr ng-click="freestyle=!freestyle">
+					<td>
+						<img id="customers" src="images/FRS.png" /></td>
+					<td><h4>Freestyle</h4>
+					<div ng-show="freestyle">
+						<h5><img id="smallones" src="images/day.png" />Fredag 9</h5>
+						<h5><img id="smallones" src="images/medal.png" />Söndag 11</h5>
+						<h5><img id="smallones" src="images/medal.png" />Måndag 12</h5>
+						<h5><img id="smallones" src="images/day.png" />Torsdag 15</h5>
+						<h5><img id="smallones" src="images/medal.png" />Fredag 16</h5>
+						<h5><img id="smallones" src="images/medal.png" />Lördag 17</h5>
+						<h5><img id="smallones" src="images/medal.png" />Söndag 18</h5>
+						<h5><img id="smallones" src="images/day.png" />Måndag 19</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 20</h5>
+					</div>
+					</td>
+				</tr>
+                </span>
+            </tr>
+			<tr ng-click="rodel=!rodel">
+					<td>
+						<img id="customers" src="images/LUG.png" /></td>
+					<td><h4>Rodel</h4>
+					<div ng-show="rodel">
+						<h5><img id="smallones" src="images/day.png" />Fredag 9</h5>
+						<h5><img id="smallones" src="images/day.png" />Lördag 10</h5>
+						<h5><img id="smallones" src="images/medal.png" />Söndag 11</h5>
+						<h5><img id="smallones" src="images/day.png" />Måndag 12</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 13</h5>
+						<h5><img id="smallones" src="images/medal.png" />Onsdag 14</h5>
+						<h5><img id="smallones" src="images/medal.png" />Torsdag 15</h5>
+					</div>
+					</td>
+				</tr>
+                </span>
+            </tr>
+			<tr ng-click="skeleton=!skeleton">
+					<td><img id="customers" src="images/SKN.png" /></td>
+					<td><h4>Skeleton</h4>
+					<div ng-show="skeleton">
+						<h5><img id="smallones" src="images/day.png" />Måndag 12</h5>
+						<h5><img id="smallones" src="images/day.png" />Tisdag 13</h5>
+						<h5><img id="smallones" src="images/day.png" />Onsdag 14</h5>
+						<h5><img id="smallones" src="images/day.png" />Torsdag 15</h5>
+						<h5><img id="smallones" src="images/medal.png" />Fredag 16</h5>
+						<h5><img id="smallones" src="images/medal.png" />Lördag 17</h5>
+					</div>
+					</td>
+				</tr>
+                </span>
+            </tr>
+			<tr ng-click="snowboard=!snowboard">
+					<td><img id="customers" src="images/SBD.png" /></td>
+					<td><h4>Snowboard</h4>
+					<div ng-show="snowboard">
+						
+						<h5><img id="smallones" src="images/day.png" />Lördag 10</h5>
+						<h5><img id="smallones" src="images/medal.png" />Söndag 11</h5>
+						<h5><img id="smallones" src="images/medal.png" />Måndag 12</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 13</h5>
+						<h5><img id="smallones" src="images/medal.png" />Onsdag 14</h5>
+						<h5><img id="smallones" src="images/medal.png" />Torsdag 15</h5>
+						<h5><img id="smallones" src="images/medal.png" />Fredag 16</h5>
+						<h5><img id="smallones" src="images/day.png" />Söndag 18</h5>
+					
+					</div>
+					</td>
+				</tr>
+                </span>
+            </tr>
 			
+        </tbody>
+		     <tbody ng-show="falun">
+            <tr>
+                <span>
+                <td>
+                    <img id="customers" src="images/{{city.sports_img}}" />
+                </td>
+                <td ng-click="event=!event">
+                    <h4>Falun</h4>
+                    <div ng-show="event"> 
+                        <h2>Fredag</h2>
+                     </div> 
+                </td>
+                </span>
+            </tr>
+        </tbody>
 		
 
-	
+    </table>
 
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				
-				<th scope="col">Sporter</th>
-				<th scope="col">Events</th>
-
-			</tr>
-
-			<br> <br>
-		</thead>
-
-		<tbody ng-hide="stockholm">
-			<tr ng-repeat="city in alldata">
-				<span>
-				<td>
-<div>
-					<img id="customers" src="images/{{city.sports_img}}" />
-					</div>
-				</td>
-				<td ng-click="event=!event">
-					<h4> {{city.sports_name_swe}}</h4>
-					<div ng-show="event"> 
-						<h2>{{calcity(city.sports_cities_id)}}</h2>
-                     
-					 </div> 
-					
-
-				</td>
-				</span>
-			</tr>
-		</tbody>
-		<tbody ng-show="stockholm">
-			<tr ng-repeat="city in alldata">
-				<span>
-				<td>
-<div>
-					<img id="customers" src="images/{{city.sports_img}}" />
-					</div>
-				</td>
-				<td ng-click="event=!event">
-					<h4> {{city.sports_name_swe}}</h4>
-					<div ng-show="event"> 
-						<h2>{{calcity(city.sports_cities_id)}}</h2>
-                     
-					 </div> 
-					
-
-				</td>
-				</span>
-			</tr>
-		</tbody>
-
-	</table>
-
-	</div>
-
+    </div>
 	<!-- middle section -->
 	<div class="middle-w3l py-sm-5 py-4">
 		<div class="container py-xl-5 py-lg-3">

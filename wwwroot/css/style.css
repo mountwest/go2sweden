@@ -1597,5 +1597,10 @@ figure.effect-apollo:hover figcaption::before {
     width: 30px;
 }
 
+#smallones{
+    height: 30px;
+    width: 30px;
+}
+
 
 /*--//responsive--*/
