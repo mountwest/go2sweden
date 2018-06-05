@@ -99,8 +99,6 @@ myapp.controller("ApiController", function ($scope, $http) {
                     $scope.setIcon = function(transporKind){
 
                         let icon =" ";
-
-                        console.log(transporKind);
                         
                         switch (transporKind){
                             case transporKind = "train" : 

@@ -6,27 +6,22 @@ var directionsService;
 var directionsDisplay;
 var LatitudeLongitude = [];
 var selectedRoute = 0;
-var path;
+var path = [];
 var pathArray = [];
-var pathColor = [
-    "#00ff00",
-    "#ffff00",
-    "#0f0000",
-    "#ff0000",
-    "#00fff0",
-    "#570f52",
-    "#8d6360",
-    "#505007",
-    "#360233",
-    "#f06c6c",
-    "#22a875",
-    "#7c057c",
-    "#2c910d",
-    "#0f0000",
-    "#0f0f00",
-    "#ffff00",
-    "#ff0f00",
-]
+var pathColor = {
+    train: "#00ff00",
+    plane: "#fffb00",
+    bus: "#0f0000",
+    nightbus: "#ff0000",
+    car: "#00fff0",
+    shuttle: "#570f52",
+    taxi: "#8d6360",
+    towncar: "#505007",
+    foot: "#e05bda",
+    subway: "#f06c6c",
+    tram: "#22a875",
+    ferry: "#7c057c",
+};
 
 function handelATags(r2Rdata) {
     var container = document.getElementById('routeSelect').className = "container mt-5 d-block";
@@ -94,9 +89,10 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, startLat
 
 function setPolylineStarterFunction(r2Rdata) {
 
-    if (path != undefined){
-            path = [];
-            path.setMap(map);
+    if (path != undefined) {
+        for (x = 0; x < pathArray.length; x++) {
+            pathArray[x].setMap(null);
+        }
     }
 
     var route = [];
@@ -108,14 +104,14 @@ function setPolylineStarterFunction(r2Rdata) {
             for (z = 0; z < decodedPath.length; z++) {
                 surfaceRoute.push(decodedPath[z]);
             }
-            console.log(r2Rdata);
             path = new google.maps.Polyline({
                 path: surfaceRoute,
                 geodesic: false,
-                strokeColor: pathColor[segment.vehicle],
+                strokeColor: pathColor[r2Rdata.vehicles[segment.vehicle].kind],
                 strokeOpacity: 0.7,
-                strokeWeight: 4
+                strokeWeight: 6
             });
+            pathArray.push(path);
             path.setMap(map);
 
         } else {
@@ -125,10 +121,11 @@ function setPolylineStarterFunction(r2Rdata) {
             path = new google.maps.Polyline({
                 path: airRoute,
                 geodesic: false,
-                strokeColor: pathColor[segment.vehicle],
+                strokeColor: pathColor[r2Rdata.vehicles[segment.vehicle].kind],
                 strokeOpacity: 0.7,
-                strokeWeight: 4
+                strokeWeight: 6
             });
+            pathArray.push(path);
             path.setMap(map);
         }
     }
