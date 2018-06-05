@@ -1596,6 +1596,9 @@ figure.effect-apollo:hover figcaption::before {
     height: 45px;
     width: 30px;
 }
-
+#smallones{
+    height: 30px;
+    width: 30px;
+}
 
 /*--//responsive--*/
