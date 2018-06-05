@@ -630,9 +630,11 @@ h3.title {
 }
 
 h3.title span {
-    color: #2ec8a6;
+    color: #fecd01;
 }
-
+.blue{
+    color: #006bab;
+}
 /*-- //heading title style --*/
 
 /*-- inner pages --*/
@@ -666,7 +668,7 @@ ul.w3_short li a {
 .ab-right h3 {
     font-size: 36px;
     letter-spacing: 2px;
-    color: #2ec8a6;
+    color: #fecd01;
     line-height: 1.4;
     border-bottom: 4px solid #000;
 }
@@ -1600,6 +1602,10 @@ figure.effect-apollo:hover figcaption::before {
 #smallones{
     height: 30px;
     width: 30px;
+}
+.center {
+    margin: auto;
+    width: 80%;
 }
 
 
