@@ -87,25 +87,27 @@
 			<div class="about-w3l py-sm-5 py-4">
 				<div class="container py-xl-5 py-lg-3">
 					<h3 class="title mb-lg-5 mb-sm-4 mb-3">
-						<span>E</span>venemang</h3>
+						<span>E</span><span>venemang</span></h3>
 					<div class="row">
 						<div class="col-xl-7 ab-left">
 							<img src="images/projektlogga.png" alt=" " class="img-fluid" />
 						</div>
 						<div class="col-xl-5 ab-right">
-							<h3 class="mb-4 pb-4">Sverige OS 2024</h3>
-							<p>Thank you for taking the time to visit our site! sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-								Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<p class="mt-3">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<h3 class="mb-4 pb-4">OS schema</h3>
+								<div class="container">
+
+
+            
+               
+
+    </div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- //feature -->
-
-	<div class="container">
+	
 
 
             
@@ -147,7 +149,7 @@
                 </span>
             </tr>
         </tbody>
-        <tbody ng-show="stockholm">
+                <tbody ng-show="stockholm">
             <tr>
 
                 <td>
@@ -189,13 +191,13 @@
 					<div ng-show="figurakning">
 						<h5><img id="smallones" src="images/day.png" />Fredag 9</h5>
 						<h5><img id="smallones" src="images/day.png" />Söndag 11</h5>
-						<h5><img id="smallones" src="images/day.png" />Måndag 12</h5>
+						<h5><img id="smallones" src="images/medal.png" />Måndag 12</h5>
 						<h5><img id="smallones" src="images/day.png" />Onsdag 14</h5>
-						<h5><img id="smallones" src="images/day.png" />Torsdag 15</h5>
+						<h5><img id="smallones" src="images/medal.png" />Torsdag 15</h5>
 						<h5><img id="smallones" src="images/day.png" />Fredag 16</h5>
-						<h5><img id="smallones" src="images/day.png" />Lördag 17</h5>
+						<h5><img id="smallones" src="images/medal.png" />Lördag 17</h5>
 						<h5><img id="smallones" src="images/day.png" />Måndag 19</h5>
-						<h5><img id="smallones" src="images/day.png" />Tisdag 20</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 20</h5>
 					</div>
 					</td>
 				</tr>
@@ -217,37 +219,145 @@
 					</div>
 					</td>
 				</tr>
-				<tr ng-click="figurakning=!figurakning">
-					<td><img id="customers" src="images/{{city.sports_img}}" /></td>
-					<td><h4>Figuråkning</h4>
-					<div ng-show="figurakning">
-						<h5>Fredag 9</h5>
-						<h5>Söndag 11</h5>
-						<h5>Måndag 12</h5>
-						<h5>Onsdag 14</h5>
-						<h5>Torsdag 15</h5>
-						<h5>Fredag 16</h5>
-						<h5>Lördag 17</h5>
-						<h5>Måndag 19</h5>
-						<h5>Tisdag 20</h5>
+				<tr ng-click="Kortbaneakning=!Kortbaneakning">
+					<td><img id="customers" src="images/STK.png" /></td>
+					<td><h4>Kortbaneåkning</h4>
+					<div ng-show="Kortbaneakning">
+						<h5><img id="smallones" src="images/medal.png" />Lördag 10</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 13</h5>
+						<h5><img id="smallones" src="images/medal.png" />Lördag 17</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 20</h5>
+				
+					</div>
+					</td>
+				</tr>
+				<tr ng-click="Hastighetsakning=!Hastighetsakning">
+					<td><img id="customers" src="images/SSK.png" /></td>
+					<td><h4>Hastighetsåkning</h4>
+					<div ng-show="Hastighetsakning">
+						<h5><img id="smallones" src="images/medal.png" />Lördag 10</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 11</h5>
+						<h5><img id="smallones" src="images/medal.png" />Lördag 12</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 13</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 14</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 15</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 16</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 18</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 19</h5>
+				
 					</div>
 					</td>
 				</tr>
         </tbody>
 		     <tbody ng-show="are">
-            <tr ng-click>
-                <span>
-                <td>
-                    <img id="customers" src="images/{{city.sports_img}}" />
-                </td>
-                <td ng-click="event=!event">
-                    <h4>Åre</h4>
-                    <div ng-show="event"> 
-                        <h2>Fredag 9</h2>
-                     </div> 
-                </td>
+            <tr ng-click="alpint=!alpint">
+					<td>
+						<img id="customers" src="images/ALP.png" /></td>
+					<td>
+						<h4>Alpint</h4>
+					<div ng-show="alpint">
+						<h5><img id="smallones" src="images/day.png" />Torsdag 8</h5>
+						<h5><img id="smallones" src="images/day.png" />Fredag 9</h5>
+						<h5><img id="smallones" src="images/day.png" />Lördag 10</h5>
+						<h5><img id="smallones" src="images/day.png" />Måndag 12</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 13</h5>
+						<h5><img id="smallones" src="images/medal.png" />Torsdag 15</h5>
+						<h5><img id="smallones" src="images/medal.png" />Fredag 16</h5>
+						<h5><img id="smallones" src="images/medal.png" />Lördag 17</h5>
+						<h5><img id="smallones" src="images/medal.png" />Lördag 18</h5>
+						<h5><img id="smallones" src="images/day.png" />Måndag 19</h5>
+						<h5><img id="smallones" src="images/day.png" />Tisdag 20</h5>
+					</div>
+					</td>
+				</tr>
+				<tr ng-click="bobsleigh=!bobsleigh">
+					<td>
+						<img id="customers" src="images/BOB.png" /></td>
+					<td><h4>Bobsleigh</h4>
+					<div ng-show="bobsleigh">
+						<h5><img id="smallones" src="images/day.png" />Onsdag 14</h5>
+						<h5><img id="smallones" src="images/day.png" />Torsdag 15</h5>
+						<h5><img id="smallones" src="images/day.png" />Fredag 16</h5>
+						<h5><img id="smallones" src="images/day.png" />Lördag 17</h5>
+						<h5><img id="smallones" src="images/day.png" />Söndag 18</h5>
+						<h5><img id="smallones" src="images/medal.png" />Måndag 19</h5>
+						<h5><img id="smallones" src="images/day.png" />Tisdag 20</h5>
+					</div>
+					</td>
+				</tr>
                 </span>
             </tr>
+			<tr ng-click="freestyle=!freestyle">
+					<td>
+						<img id="customers" src="images/FRS.png" /></td>
+					<td><h4>Freestyle</h4>
+					<div ng-show="freestyle">
+						<h5><img id="smallones" src="images/day.png" />Fredag 9</h5>
+						<h5><img id="smallones" src="images/medal.png" />Söndag 11</h5>
+						<h5><img id="smallones" src="images/medal.png" />Måndag 12</h5>
+						<h5><img id="smallones" src="images/day.png" />Torsdag 15</h5>
+						<h5><img id="smallones" src="images/medal.png" />Fredag 16</h5>
+						<h5><img id="smallones" src="images/medal.png" />Lördag 17</h5>
+						<h5><img id="smallones" src="images/medal.png" />Söndag 18</h5>
+						<h5><img id="smallones" src="images/day.png" />Måndag 19</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 20</h5>
+					</div>
+					</td>
+				</tr>
+                </span>
+            </tr>
+			<tr ng-click="rodel=!rodel">
+					<td>
+						<img id="customers" src="images/LUG.png" /></td>
+					<td><h4>Rodel</h4>
+					<div ng-show="rodel">
+						<h5><img id="smallones" src="images/day.png" />Fredag 9</h5>
+						<h5><img id="smallones" src="images/day.png" />Lördag 10</h5>
+						<h5><img id="smallones" src="images/medal.png" />Söndag 11</h5>
+						<h5><img id="smallones" src="images/day.png" />Måndag 12</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 13</h5>
+						<h5><img id="smallones" src="images/medal.png" />Onsdag 14</h5>
+						<h5><img id="smallones" src="images/medal.png" />Torsdag 15</h5>
+					</div>
+					</td>
+				</tr>
+                </span>
+            </tr>
+			<tr ng-click="skeleton=!skeleton">
+					<td><img id="customers" src="images/SKN.png" /></td>
+					<td><h4>Skeleton</h4>
+					<div ng-show="skeleton">
+						<h5><img id="smallones" src="images/day.png" />Måndag 12</h5>
+						<h5><img id="smallones" src="images/day.png" />Tisdag 13</h5>
+						<h5><img id="smallones" src="images/day.png" />Onsdag 14</h5>
+						<h5><img id="smallones" src="images/day.png" />Torsdag 15</h5>
+						<h5><img id="smallones" src="images/medal.png" />Fredag 16</h5>
+						<h5><img id="smallones" src="images/medal.png" />Lördag 17</h5>
+					</div>
+					</td>
+				</tr>
+                </span>
+            </tr>
+			<tr ng-click="snowboard=!snowboard">
+					<td><img id="customers" src="images/SBD.png" /></td>
+					<td><h4>Snowboard</h4>
+					<div ng-show="snowboard">
+						
+						<h5><img id="smallones" src="images/day.png" />Lördag 10</h5>
+						<h5><img id="smallones" src="images/medal.png" />Söndag 11</h5>
+						<h5><img id="smallones" src="images/medal.png" />Måndag 12</h5>
+						<h5><img id="smallones" src="images/medal.png" />Tisdag 13</h5>
+						<h5><img id="smallones" src="images/medal.png" />Onsdag 14</h5>
+						<h5><img id="smallones" src="images/medal.png" />Torsdag 15</h5>
+						<h5><img id="smallones" src="images/medal.png" />Fredag 16</h5>
+						<h5><img id="smallones" src="images/day.png" />Söndag 18</h5>
+					
+					</div>
+					</td>
+				</tr>
+                </span>
+            </tr>
+		     
         </tbody>
 		     <tbody ng-show="falun">
                 <tr ng-click="skidskytte=!skidskytte">
@@ -342,7 +452,7 @@
 
     </table>
 
-    </div>
+    </div> 
 	<!-- middle section -->
 	<div class="middle-w3l py-sm-5 py-4">
 		<div class="container py-xl-5 py-lg-3">
