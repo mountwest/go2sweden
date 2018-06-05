@@ -28,9 +28,12 @@ myapp.controller("ApiController", function ($scope, $http) {
         let from = $scope.depatureDestination;
         let to = $scope.arrivalDestination;
         
-        from = from.replace(", ", "-");
+        // from = from.replace(/, /g, "-");
+        // from = from.replace(/ /g, "-");
 
-        $http.get('http://free.rome2rio.com/api/1.4/json/Search?key=S2Q8spaR&oName=' + from + '&dName=' + to + '&noRideshare')
+        var apiUrl = 'http://free.rome2rio.com/api/1.4/json/Search?key=S2Q8spaR&oName=' + from + '&dName=' + to + '&noRideshare';
+        console.log(apiUrl);
+        $http.get(apiUrl)
             .then(function (response) {
                 $scope.r2Rdata = response.data;
                 $scope.routes = response.data.routes;
@@ -96,8 +99,8 @@ myapp.controller("ApiController", function ($scope, $http) {
                     $scope.setIcon = function(transporKind){
 
                         let icon =" ";
-                        
-                        console.log("hej!");
+
+                        console.log(transporKind);
                         
                         switch (transporKind){
                             case transporKind = "train" : 
