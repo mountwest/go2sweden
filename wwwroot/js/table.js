@@ -132,7 +132,7 @@ myapp.controller("ApiController", function ($scope, $http) {
                             icon = "fas fa-subway fa-lg subway";
                             break;
                             case transporKind = "tram" :
-                            icon = "fas fa-tram fa-lg tram";
+                            icon = "fas fa-train fa-lg tram";
                             break;
                             case transporKind = "ferry" :
                             icon = "fas fa-ship fa-lg ferry";
