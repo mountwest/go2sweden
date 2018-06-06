@@ -132,29 +132,29 @@ myapp.controller("ApiController", function ($scope, $http) {
                                 icon = "fas fa-bus fa-lg nightbus";
                                 break;
                             case transporKind = "car":
-                                icon = "fas fa-car fa-lg car";
-                                break;
-                            case transporKind = "shuttle":
-                                icon = "fas fa-shuttle fa-lg shuttle";
-                                break;
-                            case transporKind = "taxi":
-                                icon = "fas fa-taxi fa-lg taxi";
-                                break;
-                            case transporKind = "towncar":
-                                icon = "fab fa-uber fa-lg towncar";
-                                break;
-                            case transporKind = "foot":
-                                icon = "fas fa-walking fa-lg foot";
-                                break;
-                            case transporKind = "subway":
-                                icon = "fas fa-subway fa-lg subway";
-                                break;
-                            case transporKind = "tram":
-                                icon = "fas fa-tram fa-lg tram";
-                                break;
-                            case transporKind = "ferry":
-                                icon = "fas fa-ship fa-lg ferry";
-                                break;
+                            icon = "fas fa-car fa-lg car";
+                            break;
+                            case transporKind = "shuttle" :
+                            icon = "fas fa-shuttle fa-lg shuttle";
+                            break;
+                            case transporKind = "taxi" :
+                            icon = "fas fa-taxi fa-lg taxi";
+                            break;
+                            case transporKind = "towncar" :
+                            icon = "fab fa-uber fa-lg towncar";
+                            break;
+                            case transporKind = "foot" :
+                            icon = "fas fa-walking fa-lg foot";
+                            break;
+                            case transporKind = "subway" :
+                            icon = "fas fa-subway fa-lg subway";
+                            break;
+                            case transporKind = "tram" :
+                            icon = "fas fa-train fa-lg tram";
+                            break;
+                            case transporKind = "ferry" :
+                            icon = "fas fa-ship fa-lg ferry";
+                            break;
                             default: ;
                                 icon = "ooops "
                                 break;
@@ -193,6 +193,32 @@ myapp.controller("ApiController", function ($scope, $http) {
             });
     }
 
+    $scope.getschema = function (){
+        $http.get('http://steffo.info/toswe-api/toswe-sports.php')
+        .then(function(response){
+            $scope.alldata = response.data;
+        })
+    }
+
+    $scope.getcityschema = function (){
+        $http.get('http://steffo.info/toswe-api/toswe-events.php')
+        .then(function(response){
+            $scope.alldatacity = response.data;
+        })
+    }
+
+    $scope.calcity = function(x){
+        y = " ";
+        if (x==1){
+            y = "Stockholm"
+        }else if (x==2){
+            y = "Falun"
+        }else {y="Åre"}
+
+        return y;
+    }
+    
+
 })
 
 
@@ -218,3 +244,4 @@ myapp.directive('googleplace', function () {
         }
     };
 })
+
