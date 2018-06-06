@@ -64,3 +64,4 @@ obj/Debug/netcoreapp2.0/go2sweden.pdb
 obj/go2sweden.csproj.nuget.cache
 obj/go2sweden.csproj.nuget.g.props
 obj/project.assets.json
+bin/Debug/netcoreapp2.0/go2sweden.dll

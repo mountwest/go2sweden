@@ -4,6 +4,8 @@ myapp.controller("ApiController", function ($scope, $http) {
     // Har en funktion redo för att gömma och vissa information
     //     $scope.going = false;
 
+    $scope.routes = {};
+
     $scope.goEvent = function () {
         $scope.going = !$scope.going;
         if ($scope.going) {
@@ -23,11 +25,19 @@ myapp.controller("ApiController", function ($scope, $http) {
         }
     }
 
+    $scope.setMap = function (routeId) {
+        if (mapArray[routeId] == null) {
+            initMap($scope.r2Rdata, routeId);
+        }
+    }
+
+
     $scope.getData = function () {
+
 
         let from = $scope.depatureDestination;
         let to = $scope.arrivalDestination;
-        
+
         // from = from.replace(/, /g, "-");
         // from = from.replace(/ /g, "-");
 
@@ -35,6 +45,16 @@ myapp.controller("ApiController", function ($scope, $http) {
         console.log(apiUrl);
         $http.get(apiUrl)
             .then(function (response) {
+                
+                clearMapCache();
+
+                pathArrayList.length = response.data.routes.length;
+                mapArray.length = response.data.routes.length;
+
+                for (let index = 0; index < response.data.routes.length; index++) {
+                    mapArrayId.push('go2swedenMap' + index);
+                }
+
                 $scope.r2Rdata = response.data;
                 $scope.routes = response.data.routes;
                 $scope.vehicles = response.data.vehicles;
@@ -50,8 +70,6 @@ myapp.controller("ApiController", function ($scope, $http) {
                 var startLatLng = new google.maps.LatLng($scope.r2Rdata.places[0].lat, $scope.r2Rdata.places[0].lng);
                 var endLatLng = new google.maps.LatLng($scope.r2Rdata.places[1].lat, $scope.r2Rdata.places[1].lng);
 
-                addPlaces($scope.r2Rdata.places);
-                setPolylineStarterFunction($scope.r2Rdata);
 
                 $scope.timeChange = function (timeinmin) {
 
@@ -96,51 +114,51 @@ myapp.controller("ApiController", function ($scope, $http) {
                         return timeToDestination;
                     }
 
-                    $scope.setIcon = function(transporKind){
+                    $scope.setIcon = function (transporKind) {
 
-                        let icon =" ";
-                        
-                        switch (transporKind){
-                            case transporKind = "train" : 
-                            icon = "fas fa-train fa-lg train";
-                            break;
-                            case transporKind = "plane" :
-                            icon = "fas fa-plane fa-lg plane";
-                            break;
-                            case transporKind = "bus" :
-                            icon = "fas fa-bus fa-lg bus";
-                            break;
-                            case transporKind = "night bus" :
-                            icon = "fas fa-bus fa-lg nightbus";
-                            break;
+                        let icon = " ";
+
+                        switch (transporKind) {
+                            case transporKind = "train":
+                                icon = "fas fa-train fa-lg train";
+                                break;
+                            case transporKind = "plane":
+                                icon = "fas fa-plane fa-lg plane";
+                                break;
+                            case transporKind = "bus":
+                                icon = "fas fa-bus fa-lg bus";
+                                break;
+                            case transporKind = "night bus":
+                                icon = "fas fa-bus fa-lg nightbus";
+                                break;
                             case transporKind = "car":
-                            icon = "fas fa-car fa-lg car";
-                            break;
-                            case transporKind = "shuttle" :
-                            icon = "fas fa-shuttle fa-lg shuttle";
-                            break;
-                            case transporKind = "taxi" :
-                            icon = "fas fa-taxi fa-lg taxi";
-                            break;
-                            case transporKind = "towncar" :
-                            icon = "fab fa-uber fa-lg towncar";
-                            break;
-                            case transporKind = "foot" :
-                            icon = "fas fa-walking fa-lg foot";
-                            break;
-                            case transporKind = "subway" :
-                            icon = "fas fa-subway fa-lg subway";
-                            break;
-                            case transporKind = "tram" :
-                            icon = "fas fa-tram fa-lg tram";
-                            break;
-                            case transporKind = "ferry" :
-                            icon = "fas fa-ship fa-lg ferry";
-                            break;
+                                icon = "fas fa-car fa-lg car";
+                                break;
+                            case transporKind = "shuttle":
+                                icon = "fas fa-shuttle fa-lg shuttle";
+                                break;
+                            case transporKind = "taxi":
+                                icon = "fas fa-taxi fa-lg taxi";
+                                break;
+                            case transporKind = "towncar":
+                                icon = "fab fa-uber fa-lg towncar";
+                                break;
+                            case transporKind = "foot":
+                                icon = "fas fa-walking fa-lg foot";
+                                break;
+                            case transporKind = "subway":
+                                icon = "fas fa-subway fa-lg subway";
+                                break;
+                            case transporKind = "tram":
+                                icon = "fas fa-tram fa-lg tram";
+                                break;
+                            case transporKind = "ferry":
+                                icon = "fas fa-ship fa-lg ferry";
+                                break;
                             default: ;
-                            icon = "ooops "  
-                            break;
-           
+                                icon = "ooops "
+                                break;
+
                         }
 
                         return icon;
@@ -166,9 +184,12 @@ myapp.controller("ApiController", function ($scope, $http) {
                         }
                     }
                 }
+
             })
             .catch(function (error) {
+                console.log("Error:");
                 console.log(error);
+                alert("Could not find your requsted location.");
             });
     }
 
@@ -182,7 +203,7 @@ myapp.directive('googleplace', function () {
         link: function (scope, element, attrs, model) {
             var options = {
                 types: [],
-                componentRestrictions: null
+                componentRestrictions: null,
             };
 
             scope.gPlace = new google.maps.places.Autocomplete(element[0], options);

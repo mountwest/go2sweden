@@ -1,13 +1,18 @@
-﻿// Write your JavaScript code.
+﻿
+// Write your JavaScript code.
+var initZoom = false;
+var firstMapId;
 var map;
+var mapArray = [];
+var mapArrayId = [];
 var markers = [];
 var polylines = [];
-var directionsService;
-var directionsDisplay;
 var LatitudeLongitude = [];
+var bounds = [];
 var selectedRoute = 0;
-var path = [];
+// var path = [];   
 var pathArray = [];
+var pathArrayList = [];
 var pathColor = {
     train: "#00ff00",
     plane: "#fffb00",
@@ -23,88 +28,23 @@ var pathColor = {
     ferry: "#7c057c",
 };
 
-function handelATags(r2Rdata) {
-    var container = document.getElementById('routeSelect').className = "container mt-5 d-block";
-    var displaydiv = document.getElementById('my-list-tab-test');
-    while (displaydiv.hasChildNodes()) {
-        displaydiv.removeChild(displaydiv.firstChild);
+function setPolylineStarterFunction(r2Rdata, routeId) {
+
+    for (let i = 0; i < pathArray.length; i++) {
+        pathArray[i] = null;
     }
-    for (let i = 0; i < r2Rdata.routes.length; i++) {
-        var count = i + 1;
-        var currentPositionInRoutesArray = r2Rdata.routes[i];
-        addingATag(count, currentPositionInRoutesArray);
-    }
-}
-
-function addingATag(count, currentPositionInRoutesArray) {
-    var aTag = document.createElement("A");
-    var text = document.createTextNode("Option " + count + ": " + currentPositionInRoutesArray.name);
-    aTag.appendChild(text);
-    var aClass = document.createAttribute("class");
-    aClass.value = "list-group-item list-group-item-action";
-    var aId = document.createAttribute("id");
-    aId.value = "list-" + "tab" + count + "-list";
-    var aDataToggle = document.createAttribute("data-toggle");
-    aDataToggle.value = "list";
-    var aHref = document.createAttribute("href");
-    aHref.value = "#list-" + "tab" + count;
-    var aRole = document.createAttribute("role");
-    aRole.value = "tab";
-    var aAriaControls = document.createAttribute("aria-controls");
-    aAriaControls.value = "tab" + count;
-    aTag.setAttributeNode(aClass);
-    aTag.setAttributeNode(aId);
-    aTag.setAttributeNode(aDataToggle);
-    aTag.setAttributeNode(aHref);
-    aTag.setAttributeNode(aRole);
-    aTag.setAttributeNode(aAriaControls);
-    document.getElementById('my-list-tab-test').appendChild(aTag);
-}
-
-function addPlaces(places) {
-    deleteMarkers();
-    for (let i = 0; i < 2; i++) {
-        var myLatlng = new google.maps.LatLng(places[i].lat, places[i].lng);
-        addMarker(myLatlng);
-    }
-    setMapOnAll(map);
-}
-
-function calculateAndDisplayRoute(directionsService, directionsDisplay, startLatLng, endLatLng) {
-    deleteMarkers();
-    directionsService.route({
-        origin: startLatLng,
-        destination: endLatLng,
-        travelMode: 'DRIVING'
-    }, function (response, status) {
-        if (status === 'OK') {
-            console.log("Route response:")
-            console.log(response);
-            directionsDisplay.setDirections(response);
-        } else {
-            window.alert('Directions request failed due to ' + status);
-        }
-    });
-}
-
-function setPolylineStarterFunction(r2Rdata) {
-
-    if (path != undefined) {
-        for (x = 0; x < pathArray.length; x++) {
-            pathArray[x].setMap(null);
-        }
-    }
+    pathArray = [];
 
     var route = [];
-    for (i = 0; i < r2Rdata.routes[selectedRoute].segments.length; i++) {
-        var segment = r2Rdata.routes[selectedRoute].segments[i];
+    for (i = 0; i < r2Rdata.routes[routeId].segments.length; i++) {
+        var segment = r2Rdata.routes[routeId].segments[i];
         if (segment.segmentKind.match("surface")) {
             var surfaceRoute = [];
             decodedPath = google.maps.geometry.encoding.decodePath(segment.path);
             for (z = 0; z < decodedPath.length; z++) {
                 surfaceRoute.push(decodedPath[z]);
             }
-            path = new google.maps.Polyline({
+            var path = new google.maps.Polyline({
                 path: surfaceRoute,
                 geodesic: false,
                 strokeColor: pathColor[r2Rdata.vehicles[segment.vehicle].kind],
@@ -112,13 +52,13 @@ function setPolylineStarterFunction(r2Rdata) {
                 strokeWeight: 6
             });
             pathArray.push(path);
-            path.setMap(map);
+            path.setMap(mapArray[routeId]);
 
         } else {
             var airRoute = []
             airRoute.push({ lat: r2Rdata.places[segment.depPlace].lat, lng: r2Rdata.places[segment.depPlace].lng })
             airRoute.push({ lat: r2Rdata.places[segment.arrPlace].lat, lng: r2Rdata.places[segment.arrPlace].lng })
-            path = new google.maps.Polyline({
+            var path = new google.maps.Polyline({
                 path: airRoute,
                 geodesic: false,
                 strokeColor: pathColor[r2Rdata.vehicles[segment.vehicle].kind],
@@ -126,39 +66,71 @@ function setPolylineStarterFunction(r2Rdata) {
                 strokeWeight: 6
             });
             pathArray.push(path);
-            path.setMap(map);
+            path.setMap(mapArray[routeId]);
         }
+    }
+    pathArrayList[routeId] = pathArray;
+}
+
+function addPlaces(places, routeId) {
+    for (let i = 0; i < 2; i++) {
+        var myLatlng = new google.maps.LatLng(places[i].lat, places[i].lng);
+        addMarker(myLatlng, routeId);
     }
 }
 
 // Adds a marker to the map and push to the array.
-function addMarker(location) {
+function addMarker(location, routeId) {
     var marker = new google.maps.Marker({
         animation: google.maps.Animation.DROP,
         position: location,
-        map: map
+        size: 5,
+        map: mapArray[routeId]
     });
     markers.push(marker);
 }
 
-// Sets the map on all markers in the array.
-function setMapOnAll(map) {
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(map);
-    }
+function handlesBounds(place, routeId) {
+    bounds = new google.maps.LatLngBounds();
+    bounds.extend(new google.maps.LatLng(place[0].lat, place[0].lng));
+    bounds.extend(new google.maps.LatLng(place[1].lat, place[1].lng));
+    mapArray[routeId].fitBounds(bounds);
 }
 
-// Deletes all markers in the array by removing references to them.
-function deleteMarkers() {
-    setMapOnAll(null);
-    markers = [];
+
+function clearMapCache() {
+    for (i = 0; i < mapArray.length; i++) {
+        mapArray[i] = null;
+        mapArrayId[i] = null;
+    }
+    for (i = 0; i < markers.length; i++) {
+        markers[i] = null;
+    }
+    for (let i = 0; i < pathArrayList.length; i++) {
+        if (pathArrayList[i] != null) {
+            for (let a = 0; a < pathArrayList[i].length; a++) {
+                pathArrayList[i][a] = null;
+            }
+        }
+        pathArrayList[i] = null;
+    }
+    for (let i = 0; i < pathArray.length; i++) {
+        pathArray[i] = null;
+        
+    }
+    bounds = null;
+    firstMapId = null;
+    initZoom = false;
+    map = null;
 }
 
 // GOOGLE MAPS FUNCTIONS BELOW! :)
-function initMap() {
-
-    var styledMapType = new google.maps.StyledMapType(
-        [
+function initMap(data, routeId) {
+    console.log(routeId);
+    let mapOptions = {
+        center: new google.maps.LatLng(59.334591, 18.06324),
+        zoom: 4,
+        styles: [
             {
                 "featureType": "administrative",
                 "elementType": "labels.text.fill",
@@ -245,25 +217,21 @@ function initMap() {
                         "visibility": "on"
                     }
                 ]
-            }
-        ],
-        { name: 'go2swedenMap' });
+            },
+        ]
+    };
 
-    directionsService = new google.maps.DirectionsService;
-    directionsDisplay = new google.maps.DirectionsRenderer;
+    map = new google.maps.Map(document.getElementById("go2SwedenMap" + routeId), mapOptions);
+    mapArray[routeId] = map;
 
-    map = new google.maps.Map(document.getElementById("googleMap"), {
-        center: new google.maps.LatLng(59.334591, 18.06324),
-        zoom: 4,
-        mapTypeControlOptions: {
-            mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
-                'go2swedenMap']
-        }
-    });
+    setPolylineStarterFunction(data, routeId);
+    addPlaces(data.places, routeId);
+    handlesBounds(data.places, routeId);
 
-    map.mapTypes.set('go2swedenMap', styledMapType);
-    map.setMapTypeId('go2swedenMap')
-
-    directionsDisplay.setMap(map);
-
+    if (!initZoom) {
+        firstMapId = routeId;
+        initZoom = true
+    } else {
+        mapArray[routeId].setZoom(mapArray[firstMapId].zoom);
+    }
 }
