@@ -59,7 +59,7 @@
 						<tbody>
 							<tr ng-repeat="route in routes" ng-attr-id="{{$index}}">
 								<td ng-click="toggle=!toggle; setMap($index)">
-									<div ng-show="toggle" id="{{'go2SwedenMap' + $index}}" ng-disabled style="height:200px; width: 323px; margin-bottom: 20px"></div>
+									
 									<span ng-repeat="segment in route.segments">
 										<span ng-hide="toggle" class="{{setIcon(vehicles[segment.vehicle].kind)}}"> </span>  
 										<div ng-show="toggle">
@@ -71,7 +71,8 @@
 									</span>
 								</td>
 
-								<td>{{timeChange(route.totalDuration)}}</td>
+								<td>{{timeChange(route.totalDuration)}}
+								<span><div ng-show="toggle" id="{{'go2SwedenMap' + $index}}" ng-disabled style="height:400px; width: 646px; margin-bottom: 20px"></div></span></td>
 
 								<td>{{route.indicativePrices[0].price + " " + route.indicativePrices[0].currency}}</td>	  
 							</tr>
@@ -227,14 +228,14 @@
 					<td><h4>Hastighetsåkning</h4>
 					<div ng-show="Hastighetsakning">
 						<h5><img id="smallones" src="images/medal.png" />Lördag 10</h5>
-						<h5><img id="smallones" src="images/medal.png" />Tisdag 11</h5>
-						<h5><img id="smallones" src="images/medal.png" />Lördag 12</h5>
+						<h5><img id="smallones" src="images/medal.png" />Söndag 11</h5>
+						<h5><img id="smallones" src="images/medal.png" />Måndag 12</h5>
 						<h5><img id="smallones" src="images/medal.png" />Tisdag 13</h5>
-						<h5><img id="smallones" src="images/medal.png" />Tisdag 14</h5>
-						<h5><img id="smallones" src="images/medal.png" />Tisdag 15</h5>
-						<h5><img id="smallones" src="images/medal.png" />Tisdag 16</h5>
-						<h5><img id="smallones" src="images/medal.png" />Tisdag 18</h5>
-						<h5><img id="smallones" src="images/medal.png" />Tisdag 19</h5>
+						<h5><img id="smallones" src="images/medal.png" />Onsdag 14</h5>
+						<h5><img id="smallones" src="images/medal.png" />Torsdag 15</h5>
+						<h5><img id="smallones" src="images/medal.png" />Fredag 16</h5>
+						<h5><img id="smallones" src="images/medal.png" />Söndag 18</h5>
+						<h5><img id="smallones" src="images/medal.png" />Måndag 19</h5>
 				
 					</div>
 					</td>
