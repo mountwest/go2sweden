@@ -58,7 +58,8 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat="route in routes" ng-attr-id="{{$index}}">
-								<td >
+								<td>
+									<span><div ng-show="toggle" id="{{'go2SwedenMap' + $index}}" ng-disabled style="height:400px; max-width: 646px; margin-bottom: 20px"></div></span>
 									<div ng-click="toggle=!toggle; setMap($index)">
 									<span ng-repeat="segment in route.segments">
 										<span ng-hide="toggle" class="{{setIcon(vehicles[segment.vehicle].kind)}}"></span>  
@@ -70,7 +71,7 @@
 										</div>
 									</span>
 									</div>
-									<span><div ng-show="toggle" id="{{'go2SwedenMap' + $index}}" ng-disabled style="height:400px; max-width: 646px; margin-bottom: 20px"></div></span>
+									
 								</td>
 
 								<td>{{timeChange(route.totalDuration)}}
